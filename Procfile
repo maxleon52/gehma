@@ -1,1 +1,1 @@
-web: gunicorn gemah-teste.wsgi --log-file -
+web: gunicorn gemah_projeto.wsgi --log-file -
