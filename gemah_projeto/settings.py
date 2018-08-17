@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['gemah-teste.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','https://gemah-teste.herokuapp.com/']
 
 
 # Application definition
@@ -126,8 +126,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    'estaticos',
-
+    os.path.join(BASE_DIR, 'static'),
 ]
 
 MEDIA_URL = '/media/'
@@ -138,4 +137,4 @@ LOGIN_URL = '/login/'
 
 LOGIN_REDIRECT_URL = 'menuPrincipal_urls' #DEVER SER O MENU PRINCIPAL
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'estaticos')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
