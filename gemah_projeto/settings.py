@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['gemah-teste.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','gemah-teste.herokuapp.com']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'cad_clientes_app',
     'cad_equip_app',
     'consulta_clientes_app',
+    'consulta_equip_app',
     'menu_principal',
 ]
 

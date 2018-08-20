@@ -7,7 +7,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'css/styleCadClientes.css' %}">
-    <title>Document</title>
+    <title>Clientes</title>
 </head>
 <body>
 
@@ -18,10 +18,10 @@
         {{ form }}
 
         <button type="submit">SALVAR</button>
-        <button type="">LIMPAR</button>
-        <button type="">ORÇAMENTOS</button>
-        <button type="">ORDEM DE SERVIÇO</button>
-        <a href="">SAIR</a>
+        <button type="reset">LIMPAR</button>
+        <button type="">**ORÇAMENTOS</button>
+        <button type="">**ORDEM DE SERVIÇO</button>
+        <button><a href="{% url 'menuPrincipal_urls' %}">VOLTAR</a></button>
 
     </form>
 

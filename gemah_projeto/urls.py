@@ -22,14 +22,16 @@ from django.contrib.auth import views as auth_views
 from menu_principal import urls as menuPrincipal_urls              #A PONTA PARA O ARQUIVO URLS DO APP
 from cad_clientes_app import urls as CadClientesAppUrls              #A PONTA PARA O ARQUIVO URLS DO APP
 from cad_equip_app import urls as CadEquipAppUrls                    #A PONTA PARA O ARQUIVO URLS DO APP
-from consulta_clientes_app import urls as cadConsultaAppUrls         #A PONTA PARA O ARQUIVO URLS DO APP
+from consulta_clientes_app import urls as cadConsultaCliAppUrls         #A PONTA PARA O ARQUIVO URLS DO APP
+from consulta_equip_app import urls as cadConsultaAppEquipUrls         #A PONTA PARA O ARQUIVO URLS DO APP
 
 urlpatterns = [
     path('', include(menuPrincipal_urls)),                           #CAIU NO ADMIN
     path('admin/', admin.site.urls),                                 #CAIU NO ADMIN
     path('cad_clientes_app/', include(CadClientesAppUrls)),          #caminho(APP) e função na view
     path('cad_equip_app/', include(CadEquipAppUrls)),                #caminho(APP) e função na view
-    path('consulta_clientes_app/', include(cadConsultaAppUrls)),     #caminho(APP) e caminho da URL no arquivo de urls da APP
+    path('consulta_clientes_app/', include(cadConsultaCliAppUrls)),     #caminho(APP) e caminho da URL no arquivo de urls da APP
+    path('consulta_equip_app/', include(cadConsultaAppEquipUrls)),     #caminho(APP) e caminho da URL no arquivo de urls da APP
     path('login/', auth_views.LoginView.as_view(), name='login'),    #VAI NA PASTA REGISTRATION E BUSCA A PAGINA DE LOGIN
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

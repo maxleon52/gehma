@@ -14,13 +14,13 @@
     <!-MOSTRA O USUARIO LOGADO-->
     {% if user.is_authenticated %}
         <p>Ola {{ user.username }}</p>
-        <a href="{% url 'login' %}">SAIR</a><br>
+        <a href="{% url 'my_logout' %}">SAIR</a><br>
     {% else %}
         <a href="{% url 'login' %}">ENTRAR</a><br>
     {% endif %}
 
-    <a href="{% url 'novoCliente' %}">CLIENTES</a><br>
-    <a href="">EQUIPAMENTOS</a><br>
+    <a href="{% url 'novoCliente_urls' %}">CLIENTES</a><br>
+    <a href="{% url 'novoEquip_urls' %}">EQUIPAMENTOS</a><br>
     <a href="">CONSULTAS</a><br>
     <a href="">ORDEM DE SERVIÇOS</a><br>
     <a href="">ORÇAMENTOS</a><br>

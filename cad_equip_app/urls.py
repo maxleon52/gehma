@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import lista_equipamentos
+from .views import novoEquip
 
 urlpatterns = [
-    path('listaEquip/', lista_equipamentos), #caminho(APP) e função na view
+    path('novoEquip/', novoEquip, name='novoEquip_urls'), #caminho(APP) e função na view
 ]

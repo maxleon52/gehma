@@ -3,12 +3,13 @@ from django.shortcuts import render, redirect, get_object_or_404
 from cad_clientes_app.forms import clienteForm
 from cad_clientes_app.models import tb_clientes
 
+
+
 #LISTAR CLIENTES
 @login_required
 def lista_clientes(request):
     lista = tb_clientes.objects.all() #CONSULTA NO MODEL (BD) E ARMAZENA NA VARIAVEL
     return render(request, 'consulta_clientes_app/consultaClientes.html',{'lista': lista})  # MOSTRANDO O TEMPLATE E A CONSULTA NO BANCO
-
 
 
 #METODO QUE REDIRECIONA A PAGINA e GERA O FORM NA TELA
