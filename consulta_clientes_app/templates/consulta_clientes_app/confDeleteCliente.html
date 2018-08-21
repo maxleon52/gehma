@@ -1,21 +1,16 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-      <h1>Deseja realmente deletar esse cadastro?</h1>
+{% extends 'base.html' %}
+
+{% block title%}GEMAH{% endblock %}
+
+{% block main %}
+
+ <h1>Deseja realmente deletar esse cadastro?</h1>
 
      <form method="POST" enctype="multipart/form-data"> <!--atributo enctype manda os arquivos de midia para o BD, mas na VIEW deve ter REQUEST.FILES-->
         {% csrf_token %}
         {{ form }}
 
-        <button type="submit">DELETAR</button></a>
+        <button type="submit" class="btn btn-danger">DELETAR</button>
     </form>
 
-</body>
-</html>
+{% endblock %}

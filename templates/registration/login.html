@@ -1,6 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title%}GEMAH-LOGIN{% endblock %}
+
+{% block main %}
+
 <h2>Login</h2>
 <form method="post">
     {% csrf_token%}
     {{ form.as_p}}
-    <button type="submit">ENTRAR</button>
+    <button type="submit" class="btn btn-info">ENTRAR</button>
 </form>
+
+{% endblock %}

@@ -1,14 +1,10 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>LISTA DE CLIENTES</h1> <a href="{% url 'my_logout' %}">SAIR</a>
+{% extends 'base.html' %}
+
+{% block title%}GEMAH{% endblock %}
+
+{% block main %}
+
+  <h1>LISTA DE CLIENTES</h1> <a href="{% url 'my_logout' %}">SAIR</a>
     <lu>
         {% for cliente in lista %}
             <li>
@@ -20,7 +16,6 @@
 
     <br>
 
-    <a href="{% url 'novoCliente' %}">Novo Cliente</a><br><br>
+    <a href="{% url 'novoCliente' %}" class="btn btn-primary">Novo Cliente</a><br><br>
 
-</body>
-</html>
+{% endblock %}

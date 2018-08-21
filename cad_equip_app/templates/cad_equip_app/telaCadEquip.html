@@ -1,29 +1,23 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>EQUIPAMENTOS</title>
-</head>
-<body>
+{% block title%}GEMAH{% endblock %}
 
-    <h1 class="titulo">CADASTROS DE EQUIPAMENTOS</h1><br>
+{% block main %}
+
+  <h1 class="titulo">CADASTROS DE EQUIPAMENTOS</h1><br>
 
     <form method="POST" action="{% url 'novoEquip_urls' %}" enctype="multipart/form-data"> <!--atributo enctype manda os arquivos de midia para o BD, mas na VIEW deve ter REQUEST.FILES-->
         {% csrf_token %}
-        {{ form }}
+        {{ form|bootstrap }}
 
-        <button type="submit">SALVAR</button>
-        <button type="reset">LIMPAR</button>
-        <button type="">**ORÇAMENTOS</button>
-        <button type="">**ORDEM DE SERVIÇO</button>
-        <button><a href="{% url 'menuPrincipal_urls' %}">VOLTAR</a></button>
+        <button type="submit" class="btn btn-success">SALVAR</button>
+        <button type="reset" class="btn btn-warning">LIMPAR</button>
+        <button type="" class="btn btn-info">**ORÇAMENTOS</button>
+        <button type="" class="btn btn-secondary">**ORDEM DE SERVIÇO</button>
+        <a href="{% url 'menuPrincipal_urls' %}" class="btn btn-danger">VOLTAR</a>
 
     </form>
 
-</body>
-</html>
+{% endblock %}

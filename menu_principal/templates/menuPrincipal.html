@@ -1,14 +1,10 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>SEJA BEM VINDO AO GEMAH</h1>
+{% extends 'base.html' %}
+
+{% block title%}GEMAH-MENU{% endblock %}
+
+{% block main %}
+
+ <h1>SEJA BEM VINDO AO GEMAH</h1>
     <h1>GESTÃO DE MANUTENSÃO DE EQUIPAMENTOS HOSPITALARES</h1>
 
     <!-MOSTRA O USUARIO LOGADO-->
@@ -24,5 +20,5 @@
     <a href="">CONSULTAS</a><br>
     <a href="">ORDEM DE SERVIÇOS</a><br>
     <a href="">ORÇAMENTOS</a><br>
-</body>
-</html>
+
+{% endblock %}
