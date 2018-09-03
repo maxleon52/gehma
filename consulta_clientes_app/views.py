@@ -5,7 +5,7 @@ from cad_clientes_app.models import tb_clientes
 
 
 
-#LISTAR CLIENTES
+#CONSULTA CLIENTES
 @login_required
 def lista_clientes(request):
     lista = tb_clientes.objects.all() #CONSULTA NO MODEL (BD) E ARMAZENA NA VARIAVEL

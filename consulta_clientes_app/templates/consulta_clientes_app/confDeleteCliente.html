@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 
-{% block title%}GEMAH{% endblock %}
+{% block title%}GEMAH-MENU{% endblock %}
 
 {% block main %}
 
- <h1>Deseja realmente deletar esse cadastro?</h1>
-
-     <form method="POST" enctype="multipart/form-data"> <!--atributo enctype manda os arquivos de midia para o BD, mas na VIEW deve ter REQUEST.FILES-->
+ <h1>DESEJA REALMENTE DELETAR ESSE CADASTRO?</h1>
+    <form method="POST" enctype="multipart/form-data"> <!--atributo enctype manda os arquivos de midia para o BD, mas na VIEW deve ter REQUEST.FILES-->
         {% csrf_token %}
         {{ form }}
 
         <button type="submit" class="btn btn-danger">DELETAR</button>
     </form>
+
 
 {% endblock %}

@@ -5,7 +5,7 @@
 {% block main %}
 
  <h1>SEJA BEM VINDO AO GEMAH</h1>
-    <h1>GESTÃO DE MANUTENSÃO DE EQUIPAMENTOS HOSPITALARES</h1>
+    <h1>GESTÃO DE MANUTENSÃO DE APARELHOS HOSPITALARES</h1>
 
     <!-MOSTRA O USUARIO LOGADO-->
     {% if user.is_authenticated %}
@@ -15,10 +15,10 @@
         <a href="{% url 'login' %}">ENTRAR</a><br>
     {% endif %}
 
-    <a href="{% url 'novoCliente_urls' %}">CLIENTES</a><br>
-    <a href="{% url 'novoEquip_urls' %}">EQUIPAMENTOS</a><br>
+    <a href="{% url 'lista_clientes' %}">CLIENTES</a><br>
+    <a href="{% url 'listaEquip' %}">EQUIPAMENTOS</a><br>
     <a href="">CONSULTAS</a><br>
-    <a href="">ORDEM DE SERVIÇOS</a><br>
+    <a href="{% url 'listaOrdemServico_urls' %}">ORDEM DE SERVIÇOS</a><br>
     <a href="">ORÇAMENTOS</a><br>
 
 {% endblock %}

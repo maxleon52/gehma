@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title%}GEMAH-MENU{% endblock %}
+
+{% block main %}
+        <h1>NOVA ORDEM DE SERVIÇO</h1>
+        <form method="POST">
+                {% csrf_token %}
+
+                <h5>DEFEITO/INTERVENÇÃO</h5>
+                {{ formOs|bootstrap }}<br>
+
+                <button type="submit" class="btn btn-success">SALVAR</button>
+                <button type="reset" class="btn btn-warning">LIMPAR</button>
+                <button type="" class="btn btn-info">**ORÇAMENTOS</button>
+                <button type="" class="btn btn-secondary">**ORDEM DE SERVIÇO</button>
+                <a href="{% url 'menuPrincipal_urls' %}" class="btn btn-danger">VOLTAR</a>
+
+        </form>
+
+{% endblock %}
+
+
+
+              <!--  <h3>DEFEITO</h3><br>
+                RECLAMADO<br>
+                <input type="text" name="reclamado"><br><br>
+                CONSTATADO<br>
+                <input type="text" name="constatado"><br><br>
+                SERV. REALIZADO<br>
+                <input type="text" name="servRealizado"><br><br> -->

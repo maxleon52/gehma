@@ -8,8 +8,8 @@
     <lu>
         {% for equip in lista %}
             <li>
-                <a href="{% url 'atualizaEquip' equip.id %}">{{ equip }}</a>
-                <a href="{% url 'deleteEquip' equip.id %}">Deletar</a>
+                <a href="{% url 'atualizaEquip' equip.cod %}">{{ equip }}</a>
+                <a href="{% url 'deleteEquip' equip.cod %}">Deletar</a>
             </li>
         {% endfor %}
     </lu>

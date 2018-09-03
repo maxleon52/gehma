@@ -2,7 +2,7 @@
 from django.db import models
 
 class tb_clientes(models.Model):  # CRIA A TABELA COM SEUS RESPECTIVOS CAMPOS
-
+    cod = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=200)
     nomeFant = models.CharField(max_length=200)
     cep = models.CharField(max_length=8, null='True', blank='True')

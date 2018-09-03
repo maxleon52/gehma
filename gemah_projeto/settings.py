@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'cad_equip_app',
     'consulta_clientes_app',
     'consulta_equip_app',
+    'cad_ordemServ_app',
     'menu_principal',
 ]
 

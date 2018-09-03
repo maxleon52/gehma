@@ -1,7 +1,7 @@
 from django.db import models
 
 class tb_equip(models.Model):
-
+    cod = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=100)
     modelo = models.CharField(max_length=50, null='True', blank='True')
     marca = models.CharField(max_length=50, null='True', blank='True')
