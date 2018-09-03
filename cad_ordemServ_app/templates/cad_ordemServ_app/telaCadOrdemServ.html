@@ -8,14 +8,16 @@
         <form method="POST">
                 {% csrf_token %}
 
-                <h5>DEFEITO/INTERVENÇÃO</h5>
-                {{ formOs|bootstrap }}<br>
+                <h5>CLIENTE</h5>
+                <a href="{% url 'lista_clientes_os' %}">PESQ CLIENTE</a><br>
+                {{ formCli }}<br>
 
-                <button type="submit" class="btn btn-success">SALVAR</button>
-                <button type="reset" class="btn btn-warning">LIMPAR</button>
-                <button type="" class="btn btn-info">**ORÇAMENTOS</button>
-                <button type="" class="btn btn-secondary">**ORDEM DE SERVIÇO</button>
-                <a href="{% url 'menuPrincipal_urls' %}" class="btn btn-danger">VOLTAR</a>
+                <h5>EQUIPAMENTO</h5>
+                <a href="{% url 'lista_Equip_os' %}">PESQ EQUIP</a><br>
+                {{ formEquip }}<br>
+
+                <h5>DEFEITO/INTERVENÇÃO</h5>
+                {{ formOs }}
 
         </form>
 
