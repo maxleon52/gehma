@@ -37,3 +37,8 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(), name='login'),    #VAI NA PASTA REGISTRATION E BUSCA A PAGINA DE LOGIN
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+admin.site.site_header = 'GEMAH'
+admin.site.index_title = 'ADMINISTRAÇÃO'
+admin.site.site_header = 'SEJA BEM VINDO AO GEMAH'

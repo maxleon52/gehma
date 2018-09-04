@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import clienteForm
 
-
 # NOVO CLIENTE
 @login_required
 def novoCliente(request):

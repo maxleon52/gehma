@@ -8,13 +8,15 @@
 
   <h1 class="titulo">CADASTROS DE EQUIPAMENTOS</h1><br>
 
-    <form method="POST" action="{% url 'novoEquip_urls' %}" enctype="multipart/form-data"> <!--atributo enctype manda os arquivos de midia para o BD, mas na VIEW deve ter REQUEST.FILES-->
+    <form method="POST" enctype="multipart/form-data"> <!--atributo enctype manda os arquivos de midia para o BD, mas na VIEW deve ter REQUEST.FILES-->
         {% csrf_token %}
         {{ form|bootstrap }}
-    </form>
+
         <button type="submit" class="btn btn-success">SALVAR</button>
         <button type="reset" class="btn btn-warning">LIMPAR</button>
         <button type="" class="btn btn-info">**ORÇAMENTOS</button>
         <button type="" class="btn btn-secondary">**ORDEM DE SERVIÇO</button>
         <a href="{% url 'menuPrincipal_urls' %}" class="btn btn-danger">VOLTAR</a>
+    </form>
+
 {% endblock %}
