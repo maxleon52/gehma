@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title%}GEMAH-MENU{% endblock %}
+
+{% block main %}
+        
+        <h1>NOVA ORDEM DE SERVIÇO</h1>
+        
+        <form method="POST">
+                {% csrf_token %}
+
+                
+
+                <div class="row">
+                    
+                    <div class="col-sm-4 form-element">
+                        <h5>CLIENTE</h5>
+                        <label for="select-client">Selecione o Cliente</label><br>
+                        <select id="select-client" name="client" required>
+                            <option value="">Selecione o Cliente</option>
+                            {% for client in clients %}
+                            <option value="{{client.pk}}">{{client.nome}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="col-sm-4 form-element">
+                        <h5>EQUIPAMENTO</h5>
+                        <label for="select-equip">Selecione o Equipamento</label><br>
+                        <select id="select-equip" name="equip" required>
+                            <option value="">Selecione o Equipamento</option>
+                            {% for equip in equips %}
+                            <option value="{{equip.pk}}">{{equip.nome}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                </div>
+
+                <h5>DEFEITO/INTERVENÇÃO</h5>
+                {{ form_os }}
+                <br>
+                <button type="submit" class="btn btn-success">Salvar</button>
+
+        </form>
+
+{% endblock %}
+
+{% block custom_scripts %}
+    <script>
+        $(document).ready(function() {
+            $('#select-client').select2({
+                width: '100%'
+            });
+            $('#select-equip').select2({
+                width: '100%'
+            });
+        })
+    </script>
+{% endblock %}
+

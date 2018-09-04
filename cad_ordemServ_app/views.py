@@ -4,7 +4,7 @@ from cad_equip_app.models import tb_equip
 from cad_clientes_app.forms import clienteForm
 from cad_equip_app.forms import equipForm
 from cad_ordemServ_app.forms import OsForm
-
+from django.views.generic import TemplateView
 from django.core import serializers
 
 
@@ -59,3 +59,28 @@ def novaOS(request):
     #formEquip = equipForm(request.POST or None, request.FILES or None, instance=equip)
 
     #return render(request, 'cad_ordemServ_app/os.html', {cliente}, {equip})#{'formCli': formCli}, {'formEquip': formEquip})
+
+class CreateOs(TemplateView):
+
+    template_name = 'cad_ordemServ_app/cadOs.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CreateOs, self).get_context_data(**kwargs)
+        context['clients'] = tb_clientes.objects.all()
+        context['equips'] = tb_equip.objects.all()
+        context['form_os'] = OsForm(self.request.POST or None)
+        return context
+    
+    def post(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        form_os = context['form_os']
+        if form_os.is_valid():
+            os = form_os.save(commit=False)
+            client = get_object_or_404(tb_clientes, pk=self.request.POST['client'])
+            equip = get_object_or_404(tb_equip, pk=self.request.POST['equip'])
+            os.cliCod = client
+            os.equipCod = equip
+            os.save()
+            return redirect('/')
+
+    
