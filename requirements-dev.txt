@@ -10,7 +10,6 @@ django-generic-json-views==0.8
 django-widget-tweaks==1.4.2
 djangorestframework==3.8.2
 djangorestframework-jwt==1.11.0
-gunicorn==19.8.1
 idna==2.6
 Markdown==2.6.11
 numpy==1.14.3
