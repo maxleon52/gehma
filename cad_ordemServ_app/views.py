@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from cad_clientes_app.models import tb_clientes
 from cad_equip_app.models import tb_equip
+from cad_ordemServ_app.models import tb_os
 from cad_clientes_app.forms import clienteForm
 from cad_equip_app.forms import equipForm
 from cad_ordemServ_app.forms import OsForm
@@ -11,12 +12,21 @@ from django.core import serializers
 # Create your views here.
 # LISTAR ORDEM DE SERVIÇOS e GERAR O FORM DE O.S.
 
-
+# LISTA ORDEM DE SERVIÇO
 def listaOrdemServico(request):
-    formOs = OsForm(request.POST or None, request.FILES or None)
-    if formOs.is_valid():
-        formOs.save()
-    return render(request, 'cad_ordemServ_app/telaCadOrdemServ.html', {'formOs': formOs})
+    lista = tb_os.objects.all()
+    return render(request, 'cad_ordemServ_app/listaOs.html', {'lista': lista})
+
+# ATUALIZA ORDEM DE SERVIÇO
+def atualizaOs(request, id):
+    os = get_object_or_404(tb_os, pk=id)
+    form = OsForm(request.POST or None, request.FILES or None, instance=os)
+
+    if form.is_valid():
+        form.save()
+        return redirect('listaOrdemServico_urls') #REDIRECIONA PARA A LISTA...MAS SERIA INTERESSANTE REDIRECIONAR PARA UM JS COM A MENSAGEM SUCESSO.
+
+    return render(request, 'cad_ordemServ_app/cadOs.html', {'form': form})
 
 # LISTAR CLIENTES
 def lista_clientes_os(request):

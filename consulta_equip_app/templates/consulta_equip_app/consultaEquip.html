@@ -4,18 +4,35 @@
 
 {% block main %}
 
- <h1>LISTA DE EQUIPAMENTOS</h1> <a href="{% url 'my_logout' %}">SAIR</a>
+ <h1>CONSULTA DE EQUIPAMENTOS</h1> <a href="{% url 'my_logout' %}">SAIR</a>
+    <form action="">
+        **Tipo/Nome.:   <input type="text"> <!--CODIGO NÃO IMPLEMENTADO-->
+        **Modelo.:   <input type="text"> <!--CODIGO NÃO IMPLEMENTADO-->
+        **Nº de Série.:    <input type="text"> <!--CODIGO NÃO IMPLEMENTADO-->
+        <button>BUSCAR</button>
+        <button type="reset" class="btn btn-warning">LIMPAR</button>
+    </form>
+
+<!-LISTA DE EQUIPAMENTOS-->
     <lu>
         {% for equip in lista %}
             <li>
                 <a href="{% url 'atualizaEquip' equip.cod %}">{{ equip }}</a>
                 <a href="{% url 'deleteEquip' equip.cod %}">Deletar</a>
+                **<a href="">Historico</a>
             </li>
         {% endfor %}
     </lu>
 
     <br>
 
-    <a href="{% url 'novoEquip_urls' %}">Novo Equipamento</a><br><br>
+    <a href="{% url 'novoEquip_urls' %}" class="btn btn-primary">Novo Equipamento</a>
+    <a href="{% url 'menuPrincipal_urls' %}" class="btn btn-danger">VOLTAR</a>
+<br>
+<br>
+<br>
+<br>
+<br>
 
+<h4>** = NÃO FOI IMPLEMENTADO AINDA!</h4>
 {% endblock %}

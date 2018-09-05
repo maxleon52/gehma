@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title%}GEMAH-MENU{% endblock %}
+
+{% block main %}
+
+    <h1>LISTA ORDEM DE SERVIÇO</h1>
+    <form action="">
+        **Nº DA O.S.:   <input type="text"> <!--CODIGO NÃO IMPLEMENTADO-->
+        **NOME.:   <input type="text"> <!--CODIGO NÃO IMPLEMENTADO-->
+        **CNPJ.:   <input type="text"> <!--CODIGO NÃO IMPLEMENTADO-->
+        **CPF.:    <input type="text"> <!--CODIGO NÃO IMPLEMENTADO-->
+        <button>BUSCAR</button>
+        <button type="reset" class="btn btn-warning">LIMPAR</button>
+    </form>
+
+    <!--LISTA DE ORDEM DE SERVIÇOS-->
+    <lu>
+        {% for os in lista %}
+              <li>
+                  <a href="{% url 'atualizaOs_urls' os.cod %}">{{ os }}</a>
+                  <a href="">Deletar</a>
+              </li>
+        {% endfor %}
+    </lu>
+    <a href="{% url 'create_os_leo' %}" class="btn btn-primary">NOVA O.S.</a>
+    <a href="{% url 'menuPrincipal_urls' %}" class="btn btn-danger">VOLTAR</a>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h4>** = NÃO FOI IMPLEMENTADO AINDA!</h4>
+{% endblock %}

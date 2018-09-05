@@ -4,20 +4,11 @@
 {% block title%}GEMAH-MENU{% endblock %}
 
 {% block main %}
-        <h1>NOVA ORDEM DE SERVIÇO</h1>
+        <h1>NOVA ORDEM DE SERVIÇO - MAXWELL</h1>
         <form method="POST">
                 {% csrf_token %}
 
-                <h5>CLIENTE</h5>
-                <a href="{% url 'lista_clientes_os' %}">PESQ CLIENTE</a><br>
-                {{ formCli }}<br>
-
-                <h5>EQUIPAMENTO</h5>
-                <a href="{% url 'lista_Equip_os' %}">PESQ EQUIP</a><br>
-                {{ formEquip }}<br>
-
-                <h5>DEFEITO/INTERVENÇÃO</h5>
-                {{ formOs }}
+                {{ form }}
 
         </form>
 
