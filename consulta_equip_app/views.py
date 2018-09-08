@@ -5,7 +5,14 @@ from cad_equip_app.forms import equipForm
 
 #LISTA EQUIPAMENTOS
 def listaEquip(request):
-    lista = tb_equip.objects.all()
+    tipoNome = request.GET.get('tipoNome', None)
+    modelo = request.GET.get('modelo', None)
+    numSerie = request.GET.get('numSerie', None)
+
+    if tipoNome or modelo or numSerie:
+        lista = tb_equip.objects.filter(nome__icontains=tipoNome, modelo__icontains=modelo, numSerie__icontains=numSerie)
+    else:
+        lista = tb_equip.objects.all()
     return render(request, 'consulta_equip_app/consultaEquip.html',{'lista':lista})
 
 #ATUALIZA EQUIPAMENTOS

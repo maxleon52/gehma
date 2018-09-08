@@ -6,9 +6,9 @@
 
  <h1>CONSULTA DE EQUIPAMENTOS</h1> <a href="{% url 'my_logout' %}">SAIR</a>
     <form action="">
-        **Tipo/Nome.:   <input type="text"> <!--CODIGO NÃO IMPLEMENTADO-->
-        **Modelo.:   <input type="text"> <!--CODIGO NÃO IMPLEMENTADO-->
-        **Nº de Série.:    <input type="text"> <!--CODIGO NÃO IMPLEMENTADO-->
+        Tipo/Nome.:   <input type="text" name="tipoNome"> <!--CODIGO NÃO IMPLEMENTADO-->
+        Modelo.:   <input type="text" name="modelo"> <!--CODIGO NÃO IMPLEMENTADO-->
+        Nº de Série.:    <input type="text" name="numSerie"> <!--CODIGO NÃO IMPLEMENTADO-->
         <button>BUSCAR</button>
         <button type="reset" class="btn btn-warning">LIMPAR</button>
     </form>
@@ -34,5 +34,5 @@
 <br>
 <br>
 
-<h4>** = NÃO FOI IMPLEMENTADO AINDA!</h4>
+
 {% endblock %}

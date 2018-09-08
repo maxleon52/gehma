@@ -5,11 +5,12 @@
 {% block main %}
 
    <h1>CONSULTA CLIENTES</h1>
-    <form action="">
-        **Razão Social/Nome.:   <input type="text"> <!--CODIGO NÃO IMPLEMENTADO-->
-        **CNPJ.:   <input type="text"> <!--CODIGO NÃO IMPLEMENTADO-->
-        **CPF.:    <input type="text"> <!--CODIGO NÃO IMPLEMENTADO-->
-        <button>BUSCAR</button>
+    <form>
+        Razão Social/Nome.:   <input type="text" id="razNome" name="razNome"> <!--CODIGO NÃO IMPLEMENTADO-->
+        CNPJ.:   <input type="text" id="cnpj" name="cnpj"> <!--CODIGO NÃO IMPLEMENTADO-->
+        CPF.:   <input type="text"  id="cpf" name="cpf"> <!--CODIGO NÃO IMPLEMENTADO-->
+
+        <button type="submit">BUSCAR</button>
         <button type="reset" class="btn btn-warning">LIMPAR</button>
     </form>
 
@@ -25,7 +26,6 @@
     </lu>
 
     <br>
-
     <a href="{% url 'novoCliente_urls' %}" class="btn btn-primary">Novo Cliente</a>
     <a href="{% url 'menuPrincipal_urls' %}" class="btn btn-danger">VOLTAR</a>
 <br>
@@ -34,7 +34,7 @@
 <br>
 <br>
 
-<h4>** = NÃO FOI IMPLEMENTADO AINDA!</h4>
+
 {% endblock %}
 
 

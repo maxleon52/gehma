@@ -12,4 +12,4 @@ class tb_equip(models.Model):
     fotoVerso = models.ImageField(upload_to='Fotos_Equip', null='True', blank='True')
 
     def __str__(self):
-        return self.nome + ' ' + self.modelo + ' ' + self.marca
+        return str(self.nome) + ' ' + str(self.modelo) + ' ' + str(self.marca)
