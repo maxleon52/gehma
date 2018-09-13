@@ -91,6 +91,8 @@ class CreateOs(TemplateView):
             os.cliCod = client
             os.equipCod = equip
             os.save()
+            #Historico
+
             return redirect('/')
 
     

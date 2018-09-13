@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import PROTECT, CASCADE
+from django.utils.datetime_safe import datetime
 
 from cad_clientes_app.models import tb_clientes
 from cad_equip_app.models import tb_equip
@@ -36,3 +37,12 @@ class tb_os(models.Model):
 
     def __str__(self):
         return 'Nº O.S.: '+ str(self.cod) +' -- '+ str(self.tipo_serv)
+
+
+class tb_historico(models.Model):
+    data = models.DateField(default=datetime.now)
+    histReclamado = models.CharField(max_length=200)
+    hConstatado = models.CharField(max_length=200)
+    hServRealizado =  models.CharField(max_length=200)
+
+
