@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load bootstrap %}
+{% load widget_tweaks %}
 
 {% block title%}GEMAH-MENU{% endblock %}
 
@@ -41,7 +42,57 @@
                 <h5>DEFEITO/INTERVENÇÃO</h5>
                 <!--{{ form_os|bootstrap }}-->
 
-                defReclamado<input type="text" name="defReclamado"><br>
+                <div class="row">
+                    
+                    <div class="col-sm-4">
+                        <label for="{{form_os.defReclamado.auto_id}}">Defeitos Reclamados</label>
+                        {% render_field form_os.defReclamado %}
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="{{form_os.defConstatado.auto_id}}">Defeitos Constatados</label>
+                        {% render_field form_os.defConstatado %}
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="{{form_os.ServRealizado.auto_id}}">Serviço Realizado</label>
+                        {% render_field form_os.ServRealizado %}
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="{{form_os.dataInicioOs.auto_id}}">Data Inicio</label>
+                        {% render_field form_os.dataInicioOs %}
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="{{form_os.dataFinalOs.auto_id}}">Data Término</label>
+                        {% render_field form_os.dataFinalOs %}
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="{{form_os.tipo_serv.auto_id}}">Tipo de serviço</label>
+                        {% render_field form_os.tipo_serv %}
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="{{form_os.tipo_manut.auto_id}}">Tipo de manutenção</label>
+                        {% render_field form_os.tipo_manut %}
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="{{form_os.tipo_aterramento.auto_id}}">Tipo de aterramento</label>
+                        {% render_field form_os.tipo_aterramento %}
+                    </div>
+
+                    <div class="col-sm-4" style="margin-top: 25px">
+                        <button type="submit" class="btn btn-success">Salvar</button>
+                        <button type="reset" class="btn btn-warning">LIMPAR</button>
+                        <a href="{% url 'menuPrincipal_urls' %}" class="btn btn-danger">VOLTAR</a>
+                    </div>
+
+                </div>
+
+                <!-- defReclamado<input type="text" name="defReclamado"><br>
                 defConstatado<input type="text" name="defConstatado"><br>
                 ServRealizado<input type="text" name="ServRealizado"><br>
                 dataOs<input type="text" name="dataOs"><br>
@@ -52,10 +103,8 @@
                 tipo_serv<input type="text" name="tipo_serv"><br>
                 tipo_manut<input type="text" name="tipo_manut"><br>
                 tipo_aterramento<input type="text" name="tipo_aterramento"><br>
-                <br>
-                <button type="submit" class="btn btn-success">Salvar</button>
-                <button type="reset" class="btn btn-warning">LIMPAR</button>
-                <a href="{% url 'menuPrincipal_urls' %}" class="btn btn-danger">VOLTAR</a>
+                <br> -->
+                
 
         </form>
 

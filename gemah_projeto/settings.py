@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'consulta_equip_app',
     'cad_ordemServ_app',
     'menu_principal',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

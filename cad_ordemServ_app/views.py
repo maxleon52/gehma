@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from cad_clientes_app.models import tb_clientes
 from cad_equip_app.models import tb_equip
-from cad_ordemServ_app.models import tb_os
+from cad_ordemServ_app.models import tb_os, tb_historico
 from cad_clientes_app.forms import clienteForm
 from cad_equip_app.forms import equipForm
 from cad_ordemServ_app.forms import OsForm
@@ -92,7 +92,11 @@ class CreateOs(TemplateView):
             os.equipCod = equip
             os.save()
             #Historico
-
+            tb_historico.objects.create(
+                histReclamado=os.defReclamado,
+                hConstatado=os.defConstatado,
+                hServRealizado=os.ServRealizado
+            )
             return redirect('/')
 
     
