@@ -11,5 +11,7 @@ urlpatterns = [
     path('SelecEquip_os/<int:id>', SelecEquip_os, name='SelecEquip_os'),  # caminho(APP) e função na view
 
     path('novaOS/', novaOS, name='novaOS_urls'),  # caminho(APP) e função na view
-    path('create/os/leonardo/', CreateOs.as_view(), name="create_os_leo")
+    path('create/os/leonardo/', CreateOs.as_view(), name="create_os_leo"),
+
+
 ]

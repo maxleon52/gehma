@@ -9,17 +9,17 @@
         Tipo/Nome.:   <input type="text" name="tipoNome"> <!--CODIGO NÃO IMPLEMENTADO-->
         Modelo.:   <input type="text" name="modelo"> <!--CODIGO NÃO IMPLEMENTADO-->
         Nº de Série.:    <input type="text" name="numSerie"> <!--CODIGO NÃO IMPLEMENTADO-->
-        <button>BUSCAR</button>
+        <button type="submit">BUSCAR</button>
         <button type="reset" class="btn btn-warning">LIMPAR</button>
     </form>
 
-<!-LISTA DE EQUIPAMENTOS-->
+<h1>LISTA DE EQUIPAMENTOS</h1>
     <lu>
         {% for equip in lista %}
             <li>
                 <a href="{% url 'atualizaEquip' equip.cod %}">{{ equip }}</a>
                 <a href="{% url 'deleteEquip' equip.cod %}">Deletar</a>
-                **<a href="">Historico</a>
+                <a href="{% url 'historico_urls' equip.cod %}">**HISTORICO</a>
             </li>
         {% endfor %}
     </lu>

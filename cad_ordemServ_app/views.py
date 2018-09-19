@@ -14,7 +14,16 @@ from django.core import serializers
 
 # LISTA ORDEM DE SERVIÇO
 def listaOrdemServico(request):
-    lista = tb_os.objects.all()
+    numOs = request.GET.get('numOs', None)
+    #nome = request.GET.get('nome', None)
+    #cnpj = request.GET.get('cnpj', None)
+    #cpf = request.GET.get('cpf', None)
+
+    if numOs: #or nome or cnpj or cpf:
+        lista = tb_os.objects.filter(cod__icontains=numOs)#, nome__icontains=nome, cnpj__icontains=cnpj, cpf__icontains=cpf)  # CONSULTA NO MODEL (BD) E ARMAZENA NA VARIAVEL
+    else:
+        lista = tb_os.objects.all()
+    
     return render(request, 'cad_ordemServ_app/listaOs.html', {'lista': lista})
 
 # ATUALIZA ORDEM DE SERVIÇO
@@ -95,8 +104,8 @@ class CreateOs(TemplateView):
             tb_historico.objects.create(
                 histReclamado=os.defReclamado,
                 hConstatado=os.defConstatado,
-                hServRealizado=os.ServRealizado
+                hServRealizado=os.ServRealizado,
+                hEquipCod=os.equipCod,
+                hOsCod=os.cod
             )
-            return redirect('/')
-
-    
+            return render(request, 'cad_ordemServ_app/listaOs.html')
