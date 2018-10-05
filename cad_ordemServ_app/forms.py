@@ -7,3 +7,11 @@ class OsForm(ModelForm):
         model = tb_os
         fields = ('defReclamado', 'defConstatado', 'ServRealizado', 'dataInicioOs', 'dataFinalOs', 'tipo_serv', 'tipo_manut', 'tipo_aterramento')
        # fields = '__all__'
+
+
+class OsEditForm(ModelForm):
+    class Meta:
+        model = tb_os
+        fields = ('defReclamado', 'defConstatado', 'ServRealizado', 'dataInicioOs',
+                  'dataFinalOs', 'tipo_serv', 'tipo_manut', 'tipo_aterramento', 'cliCod', 'equipCod')
+       # fields = '__all__'

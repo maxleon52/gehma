@@ -1,10 +1,10 @@
 from cad_clientes_app.forms import clienteForm
 from cad_clientes_app.models import tb_clientes
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from django.template.loader import get_template
 
+from django.http import HttpResponse
+from django_xhtml2pdf.utils import generate_pdf, pdf_decorator
 
 
 # CONSULTA CLIENTES
@@ -64,11 +64,14 @@ def deleteCliente(request, id):
     return render(request, 'consulta_clientes_app/confDeleteCliente.html', {'form': form})
 
 
-# REPORTLAB
-# TESTE DE GERAÇÃO DE PDF---GERA MAIS NÃO ABRE
-def pdf_generation(request):
-    html_template = get_template('consulta_cliente_app/helloPdf.html')
-    pdf_file = HTML(string=html_template).write_pdf()
-    response = HttpResponse(pdf_file, content_type='application/pdf')
-    response['Content-Disposition'] = 'filename="hello.pdf"'
-    return response
+#Django-xhtml2pdf
+#@pdf_decorator
+def pdf_generation_cliente(request, id):
+    #resp = HttpResponse(content_type='application/pdf')
+    #result = generate_pdf('cad_clientes_app/teste.html', file_object=resp)
+    #return result
+    cliente = get_object_or_404(tb_clientes, pk=id)
+
+    #form = clienteForm(request.POST or None, request.FILES or None, instance=cliente)
+
+    return render(request, 'cad_clientes_app/teste.html', {'form':cliente})

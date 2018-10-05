@@ -10,7 +10,8 @@
         {% csrf_token %}
         {{ form }}
 
-        <button type="submit">DELETAR</button></a>
+        <button type="submit">DELETAR</button></a><br>
+        <a href="{% url 'listaEquip' %}">VOLTAR</a>
     </form>
 
 {% endblock %}

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RELATÓRIO DE ASSISTÊNCIA TÉCNICA</title>
+
+    <style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+    h1{
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <h1>RELATÓRIO DE ASSISTÊNCIA TÉCNICA</h1>
+    <!-- CLIENTE-->
+    <fieldset>
+        <legend><b>DADOS DO CLIENTE</b></legend>
+        <b>CLIENTE:</b> {{os.cliCod.nome}}<br>
+        <b>CONTATO:</b> {{os.cliCod.contato}}<br>
+        <b>CIDADE:</b>  {{os.cliCod.cidade}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UF:{{os.cliCod.uf}}<br>
+    </fieldset>
+    <br>
+    <!-- O.S. -->
+    <fieldset>
+        <legend><b>DADOS DA O.S.</b></legend>
+        <b>MODALIDADE:</b> {{os.tipo_serv}}<br>
+        <b>TIPO DE EQUIPAMENTO:</b> {{os.equipCod.nome}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>MODELO:</b> {{os.equipCod.modelo}}<br>
+        <b>Nº DE SÉRIE:</b> {{os.equipCod.numSerie}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>TENSÃO:</b> {{os.equipCod.tensao}}<br>
+        <b>SITUAÇÃO ATUAL:</b> 1-FUNCIONANDO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2-PARADO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-FUNCIONANDO COM RESTRIÇÕES &nbsp;&nbsp;&nbsp;&nbsp;**VER COM O CLIENTE SE VAI REALMENTE PRECISAR DESSE CAMPO
+        <br><br>
+        <b>DEFEITO RECLAMADO:</b> {{os.defReclamado}}<br><br>
+        <b>DEFEITO CONSTATADO:</b> {{os.defConstatado}}<br><br>
+        <b>SERVIÇO REALIZADO:</b> {{os.ServRealizado}}<br><br>
+        <b>JUSTIFICATIVA:</b> **VER COM O CLIENTE SE VAI REALMENTE PRECISAR DESSE CAMPO <br><br>
+
+        <b>INSTRUMENTO DE MEDIÇÃO E CALIBRAÇÃO:</b>**VER COM O CLIENTE SE VAI REALMENTE PRECISAR DESSE CAMPO <br><br>
+
+        <b>TIPO DE MANUTENÇÃO:</b> {{os.tipo_manut}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>ATERRAMENTO:</b> {{os.tipo_aterramento}}<br><br>
+
+    </fieldset>
+    <h3><b>PEÇAS UTILIZADAS</b></h3>
+    <table style="width:100%">
+      <tr>
+        <th>COD</th>
+        <th>QUANTIDADE</th>
+        <th>DESCRIÇÃO</th>
+      </tr>
+      <tr>
+        <td>00001</td>
+        <td>10</td>
+        <td>PARAFUSOS</td>
+      </tr>
+      <tr>
+        <td>00002</td>
+        <td>50</td>
+        <td>PORCAS</td>
+      </tr>
+    </table>
+    <br>
+
+    <h3>INTERVENÇÃO</h3>
+    <table style="width:100%">
+        <tr>
+           <th>DATA</th>
+           <th>INICIO</th>
+           <th>TERMINO</th>
+        </tr>
+        <tr>
+           <td>{{os.dataOs}}</td>
+           <td>{{os.dataInicioOs}}</td>
+           <td>{{os.dataFinalOs}}</td>
+        </tr>
+    </table>
+    <br>
+
+    <h3>DE ACORDO</h3>
+    <table style="width:100%">
+        <tr>
+           <th>NOME DO CONSULTOR TÉCNICO:</th>
+           <th>NOME LEGÍVEL E CARIMBO:</th>
+        </tr>
+        <tr>
+           <td><br>__________________________________________</td>
+           <td><br>__________________________________________</td>
+        </tr>
+    </table>
+
+</body>
+</html>

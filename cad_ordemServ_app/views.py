@@ -1,10 +1,10 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from cad_clientes_app.models import tb_clientes
 from cad_equip_app.models import tb_equip
 from cad_ordemServ_app.models import tb_os, tb_historico
 from cad_clientes_app.forms import clienteForm
 from cad_equip_app.forms import equipForm
-from cad_ordemServ_app.forms import OsForm
+from cad_ordemServ_app.forms import OsForm, OsEditForm
 from django.views.generic import TemplateView
 from django.core import serializers
 
@@ -13,6 +13,9 @@ from django.core import serializers
 # LISTAR ORDEM DE SERVIÇOS e GERAR O FORM DE O.S.
 
 # LISTA ORDEM DE SERVIÇO
+from django_xhtml2pdf.utils import generate_pdf
+
+
 def listaOrdemServico(request):
     numOs = request.GET.get('numOs', None)
     #nome = request.GET.get('nome', None)
@@ -29,13 +32,13 @@ def listaOrdemServico(request):
 # ATUALIZA ORDEM DE SERVIÇO
 def atualizaOs(request, id):
     os = get_object_or_404(tb_os, pk=id)
-    form = OsForm(request.POST or None, request.FILES or None, instance=os)
+    form = OsEditForm(request.POST or None, request.FILES or None, instance=os)
 
     if form.is_valid():
         form.save()
         return redirect('listaOrdemServico_urls') #REDIRECIONA PARA A LISTA...MAS SERIA INTERESSANTE REDIRECIONAR PARA UM JS COM A MENSAGEM SUCESSO.
 
-    return render(request, 'cad_ordemServ_app/cadOs.html', {'form': form})
+    return render(request, 'cad_ordemServ_app/editOs.html', {'form': form})
 
 # LISTAR CLIENTES
 def lista_clientes_os(request):
@@ -109,3 +112,10 @@ class CreateOs(TemplateView):
                 hOsCod=os.cod
             )
             return render(request, 'cad_ordemServ_app/listaOs.html')
+
+
+#Django-xhtml2pdf
+def pdf_rel_assisTec(request, id):
+    os = get_object_or_404(tb_os, pk=id)
+
+    return render(request, 'cad_ordemServ_app/pdf_rel_assisTec.html',{'os':os})

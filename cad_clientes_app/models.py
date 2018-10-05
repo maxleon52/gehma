@@ -20,4 +20,4 @@ class tb_clientes(models.Model):  # CRIA A TABELA COM SEUS RESPECTIVOS CAMPOS
     dt_criacao = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.nome
+        return self.nome + self.cnpj

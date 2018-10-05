@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import lista_clientes_os, lista_Equip_os, SelecClientes_os, SelecEquip_os, listaOrdemServico, novaOS, CreateOs, atualizaOs
+from .views import lista_clientes_os, lista_Equip_os, SelecClientes_os, SelecEquip_os, listaOrdemServico, novaOS, CreateOs, atualizaOs, pdf_rel_assisTec
 
 urlpatterns = [
     path('lista_clientes_os/', lista_clientes_os, name='lista_clientes_os'),  # caminho(APP) e função na view
@@ -12,6 +12,8 @@ urlpatterns = [
 
     path('novaOS/', novaOS, name='novaOS_urls'),  # caminho(APP) e função na view
     path('create/os/leonardo/', CreateOs.as_view(), name="create_os_leo"),
+
+    path('pdf_rel_assisTec/<int:id>', pdf_rel_assisTec, name='pdf_rel_assisTec_urls'), #caminho(APP) e função na view
 
 
 ]

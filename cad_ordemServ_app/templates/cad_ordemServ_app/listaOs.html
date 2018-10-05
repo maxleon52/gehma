@@ -18,8 +18,9 @@
     <lu>
         {% for os in lista %}
               <li>
-                  <a href="{% url 'atualizaOs_urls' os.cod %}">{{ os }}</a>
-                  <a href="">Deletar</a>
+                  <a href="{% url 'atualizaOs_urls' os.pk %}">{{ os }}</a>
+                  <a href="">Deletar --- </a>
+                  <a href="{% url 'pdf_rel_assisTec_urls' os.pk %}">REL_GERENCIAL</a>
               </li>
         {% endfor %}
     </lu>

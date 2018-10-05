@@ -19,8 +19,9 @@
         {% for cliente in lista %}
               <li>
                   <a href="{% url 'atualizaCliente' cliente.cod %}">{{ cliente }}</a>
-                  <a href="{% url 'deleteCliente' cliente.cod %}">Deletar</a>
-                  <a href="{% url 'pdf_generation_urls' %}">PDF</a>
+                  <a href="{% url 'deleteCliente' cliente.cod %}"><span class="glyphicon glyphicon-trash"></span></a>
+                  <a href="{% url 'pdf_generation_cliente_urls' cliente.cod %}"><span class="glyphicon glyphicon-print"></span></a>
+
               </li>
         {% endfor %}
 

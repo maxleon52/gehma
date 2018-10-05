@@ -48,4 +48,4 @@ class tb_historico(models.Model):
     hOsCod = models.ForeignKey(tb_os, null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self):
-        return str(self.data) + self.histReclamado + self.hConstatado + self.hServRealizado + str(self.hEquipCod)
+        return str(self.data) + str(self.histReclamado) + str(self.hConstatado) + str(self.hServRealizado) + str(self.hEquipCod)
