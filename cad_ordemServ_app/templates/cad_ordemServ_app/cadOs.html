@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load bootstrap %}
 {% load widget_tweaks %}
 
 {% block title%}GEMAH-MENU{% endblock %}
@@ -14,7 +15,7 @@
 
                 <div class="row">
                     
-                    <div class="col-sm-4 form-element">
+                    <div class="col-sm-5 form-element">
                         <h5>CLIENTE</h5>
                         <label for="select-client">Selecione o Cliente</label><br>
                         <select id="select-client" name="client" required>
@@ -25,7 +26,7 @@
                         </select>
                     </div>
 
-                    <div class="col-sm-4 form-element">
+                    <div class="col-sm-5 form-element">
                         <h5>EQUIPAMENTO</h5>
                         <label for="select-equip">Selecione o Equipamento</label><br>
                         <select id="select-equip" name="equip" required>
@@ -40,26 +41,33 @@
 
                 <h5>DEFEITO/INTERVENÇÃO</h5>
 
+
                 <div class="row">
-                    
-                    <div class="col-sm-4">
+
+                    <div class="col-sm-10">
                         <label for="{{form_os.defReclamado.auto_id}}">Defeitos Reclamados</label>
-                        {% render_field form_os.defReclamado %}
+                        {% render_field form_os.defReclamado|bootstrap %}
                     </div>
+                </div>
 
-                    <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-10">
                         <label for="{{form_os.defConstatado.auto_id}}">Defeitos Constatados</label>
-                        {% render_field form_os.defConstatado %}
+                        {% render_field form_os.defConstatado|bootstrap %}
                     </div>
+                </div>
 
-                    <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-10">
                         <label for="{{form_os.ServRealizado.auto_id}}">Serviço Realizado</label>
-                        {% render_field form_os.ServRealizado %}
+                        {% render_field form_os.ServRealizado|bootstrap %}
                     </div>
+                </div>
 
+                <div class="row">
                     <div class="col-sm-4">
                         <label for="{{form_os.dataInicioOs.auto_id}}">Data Inicio</label>
-                        {% render_field form_os.dataInicioOs %}
+                        {% render_field form_os.dataInicioOs|bootstrap %}
                     </div>
 
                     <div class="col-sm-4">
@@ -102,10 +110,9 @@
                 tipo_manut<input type="text" name="tipo_manut"><br>
                 tipo_aterramento<input type="text" name="tipo_aterramento"><br>
                 <br> -->
-                
+
 
         </form>
-
 {% endblock %}
 
 {% block custom_scripts %}

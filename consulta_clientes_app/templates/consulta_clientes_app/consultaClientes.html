@@ -12,31 +12,43 @@
 
         <button type="submit">BUSCAR</button>
         <button type="reset" class="btn btn-warning">LIMPAR</button>
-    </form>
+        <a href="{% url 'novoCliente_urls' %}" class="btn btn-primary">Novo Cliente</a>
+        <a href="{% url 'menuPrincipal_urls' %}" class="btn btn-danger">VOLTAR</a>
+    </form><br><br>
 
     <!--LISTA DE CLIENTES-->
-    <lu>
-        {% for cliente in lista %}
-              <li>
-                  <a href="{% url 'atualizaCliente' cliente.cod %}">{{ cliente }}</a>
-                  <a href="{% url 'deleteCliente' cliente.cod %}"><span class="glyphicon glyphicon-trash"></span></a>
-                  <a href="{% url 'pdf_generation_cliente_urls' cliente.cod %}"><span class="glyphicon glyphicon-print"></span></a>
-
-              </li>
-        {% endfor %}
-
-    </lu>
-
-    <br>
-    <a href="{% url 'novoCliente_urls' %}" class="btn btn-primary">Novo Cliente</a>
-    <a href="{% url 'menuPrincipal_urls' %}" class="btn btn-danger">VOLTAR</a>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+    <table class="table">
+        <thead>
+            <tr>
+              <th scope="col">CÓDIGO</th>
+              <th scope="col">NOME</th>
+              <th scope="col">CNPJ</th>
+              <th scope="col">CPF</th>
+              <th scope="col">IMPRIMIR</th>
+              <th scope="col">APAGAR</th>
+            </tr>
+      </thead>
+      {% for cliente in lista %}
+      <tbody>
+            <tr>
+              <th scope="row">{{ cliente.cod }}</th>
+              <td><a href="{% url 'atualizaCliente' cliente.cod %}">{{ cliente.nome }}</a></td>
+              <td>{{ cliente.cnpj }}</td>
+              <td>{{ cliente.cpf }}</td>
+              <td><a href="{% url 'pdf_generation_cliente_urls' cliente.cod %}" class="print-mini"><span class="glyphicon glyphicon-print"></span></a></td>
+              <td><a href="{% url 'deleteCliente' cliente.cod %}" class="trash-item-xl"><span class="glyphicon glyphicon-trash"></span></a></td>
+            </tr>
+      </tbody>
+      {% endfor %}
+    </table>
 
 {% endblock %}
 
+{% block footer %}
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">GEMAH - v1.0</span>
+        </div>
+    </footer>
+{% endblock %}
 

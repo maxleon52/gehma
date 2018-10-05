@@ -23,17 +23,17 @@ class tb_os(models.Model):
         ('nao', 'NÃO'),
     )
     cod = models.AutoField(primary_key=True)
-    defReclamado = models.CharField(max_length=200)
-    defConstatado = models.CharField(max_length=200)
-    ServRealizado = models.CharField(max_length=200)
+    defReclamado = models.CharField("DEFEITO RECLAMADO",max_length=200)
+    defConstatado = models.CharField("DEFEITO CONSTATADO",max_length=200)
+    ServRealizado = models.CharField("SERVIÇO REALIZADO",max_length=200)
     dataOs = models.DateField(auto_now_add=True)  # ESTA DATA NÃO ESTÁ APARECENDO NO ADMIN, ESTÁ OCULTA
-    dataInicioOs = models.DateField(auto_now_add=False)
-    dataFinalOs = models.DateField(auto_now_add=False)
+    dataInicioOs = models.DateField("DATA INICIAL",auto_now_add=False)
+    dataFinalOs = models.DateField("DATA FINAL",auto_now_add=False)
     cliCod = models.ForeignKey(tb_clientes, null=True, blank=True, on_delete=models.SET_NULL)
     equipCod = models.ForeignKey(tb_equip, null=True, blank=True, on_delete=models.SET_NULL)
-    tipo_serv = models.CharField(max_length=8, choices=TIPO_SERV)
-    tipo_manut = models.CharField(max_length=10, choices=TIPO_MANUT)
-    tipo_aterramento = models.CharField(max_length=3, choices=TIPO_ATERRAMENTO)
+    tipo_serv = models.CharField("TIPO DE SERVIÇO",max_length=8, choices=TIPO_SERV)
+    tipo_manut = models.CharField("TIPO DE MANUTENÇÃO",max_length=10, choices=TIPO_MANUT)
+    tipo_aterramento = models.CharField("TIPO DE ATERRAMENTO", max_length=3, choices=TIPO_ATERRAMENTO)
 
     def __str__(self):
         return 'Nº O.S.: ' + str(self.cod) + ' -- ' + str(self.tipo_serv)

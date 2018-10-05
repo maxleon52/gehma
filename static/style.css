@@ -1,4 +1,7 @@
-.centralizado{
-    left: 50%;
-    top: 50%
+.trash-item {
+    float: center;
+}
+
+.print-mini{
+    float: center;
 }

@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
 
+
 {% block title%}GEMAH{% endblock %}
 
 {% block main %}
 
   <h1>LISTA DE CLIENTES</h1> <a href="{% url 'my_logout' %}">SAIR</a>
-    <lu>
+    <ul >
         {% for cliente in lista %}
             <li>
                 <a href="{% url 'atualizaCliente_urls' cliente.cod %}">{{ cliente }}</a>
                 <a href="">Deletar</a>
             </li>
         {% endfor %}
-    </lu>
+    </ul>
 
     <br>
 
