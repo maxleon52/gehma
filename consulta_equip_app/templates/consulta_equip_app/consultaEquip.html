@@ -8,31 +8,40 @@
     <form action="">
         Tipo/Nome.:   <input type="text" name="tipoNome"> <!--CODIGO NÃO IMPLEMENTADO-->
         Modelo.:   <input type="text" name="modelo"> <!--CODIGO NÃO IMPLEMENTADO-->
-        Nº de Série.:    <input type="text" name="numSerie"> <!--CODIGO NÃO IMPLEMENTADO-->
-        <button type="submit">BUSCAR</button>
+        Nº de Série.:    <input type="text" name="numSerie"> <!--CODIGO NÃO IMPLEMENTADO-->    <br><br>
+        <button type="submit" class="btn btn-success">BUSCAR</button>
         <button type="reset" class="btn btn-warning">LIMPAR</button>
+        <a href="{% url 'novoEquip_urls' %}" class="btn btn-primary">Novo Equipamento</a>
+        <a href="{% url 'menuPrincipal_urls' %}" class="btn btn-danger">VOLTAR</a>
     </form>
 
 <h1>LISTA DE EQUIPAMENTOS</h1>
-    <lu>
+    <table class="table">
+        <thead>
+            <tr>
+              <th scope="col">CÓDIGO</th>
+              <th scope="col">NOME</th>
+              <th scope="col">MODELO</th>
+              <th scope="col">MARCA</th>
+              <th scope="col">Nº SÉRIE</th>
+              <th scope="col">HISTÓRICO</th>
+              <th scope="col">APAGAR</th>
+            </tr>
+        </thead>
+
         {% for equip in lista %}
-            <li>
-                <a href="{% url 'atualizaEquip' equip.cod %}">{{ equip }}</a>
-                <a href="{% url 'deleteEquip' equip.cod %}">Deletar</a>
-                <a href="{% url 'historico_urls' equip.cod %}">**HISTORICO</a>
-            </li>
+          <tbody>
+                <tr>
+                  <th scope="row">{{ equip.cod }}</th>
+                  <td><a href="{% url 'atualizaEquip' equip.cod %}">{{ equip.nome }}</a></td>
+                  <td>{{ equip.modelo }}</td>
+                  <td>{{ equip.marca }}</td>
+                  <td>{{ equip.numSerie }}</td>
+                  <td><a href="{% url 'historico_urls' equip.cod %}"><span class="glyphicon glyphicon-print"></span></a></td>
+                  <td><a href="{% url 'deleteEquip' equip.cod %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+                </tr>
+          </tbody>
         {% endfor %}
-    </lu>
-
-    <br>
-
-    <a href="{% url 'novoEquip_urls' %}" class="btn btn-primary">Novo Equipamento</a>
-    <a href="{% url 'menuPrincipal_urls' %}" class="btn btn-danger">VOLTAR</a>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+    </table>
 
 {% endblock %}

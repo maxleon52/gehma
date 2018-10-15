@@ -10,4 +10,3 @@ def menuPrincipal(request):
 @login_required()
 def my_logout(request):
     logout(request)
-    return redirect('login')

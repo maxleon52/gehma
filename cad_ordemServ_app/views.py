@@ -38,7 +38,7 @@ def atualizaOs(request, id):
         form.save()
         return redirect('listaOrdemServico_urls') #REDIRECIONA PARA A LISTA...MAS SERIA INTERESSANTE REDIRECIONAR PARA UM JS COM A MENSAGEM SUCESSO.
 
-    return render(request, 'cad_ordemServ_app/editOs.html', {'form': form})
+    return render(request, 'cad_ordemServ_app/editOs.html', {'form_os': form})
 
 # LISTAR CLIENTES
 def lista_clientes_os(request):

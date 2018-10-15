@@ -10,26 +10,48 @@
         **NOME.:   <input type="text" id="nome" name="nome"> <!--CODIGO NÃO IMPLEMENTADO-->
         **CNPJ.:   <input type="text" id="cnpj" name="cnpj"> <!--CODIGO NÃO IMPLEMENTADO-->
         **CPF.:    <input type="text" id="cpf" name="cpf"> <!--CODIGO NÃO IMPLEMENTADO-->
-        <button type="submit">BUSCAR</button>
+        <br><br>
+        <button type="submit" class="btn btn-success">BUSCAR</button>
         <button type="reset" class="btn btn-warning">LIMPAR</button>
+        <a href="{% url 'create_os_leo' %}" class="btn btn-primary">NOVA O.S.</a>
+        <a href="{% url 'menuPrincipal_urls' %}" class="btn btn-danger">VOLTAR</a>
     </form>
+    <br><br>
+
+    <table class="table">
+        <thead>
+            <tr>
+              <th scope="col">Nº O.S.</th>
+              <th scope="col">DATA O.S.</th>
+              <th scope="col">CLIENTE</th>
+              <th scope="col">CNPJ</th>
+              <th scope="col">CPF</th>
+              <th scope="col">TIPO SERV.</th>
+              <th scope="col">TIPO MANUT.</th>
+              <th scope="col">IMPRIMIR</th>
+              <th scope="col">APAGAR</th>
+            </tr>
+      </thead>
+
 
     <!--LISTA DE ORDEM DE SERVIÇOS-->
-    <lu>
         {% for os in lista %}
-              <li>
-                  <a href="{% url 'atualizaOs_urls' os.pk %}">{{ os }}</a>
-                  <a href="">Deletar --- </a>
-                  <a href="{% url 'pdf_rel_assisTec_urls' os.pk %}">REL_GERENCIAL</a>
-              </li>
+            <tbody>
+                <tr>
+                  <th scope="row"><a href="{% url 'atualizaOs_urls' os.pk %}">{{ os.cod }}</a></th>
+                  <td>{{ os.dataOs|date:"d/m/Y" }}</td>
+                  <td>{{ os.cliCod.nome }}</td>
+                  <td>{{ os.cliCod.cnpj }}</td>
+                  <td>{{ os.cliCod.cpf }}</td>
+                  <td>{{ os.tipo_serv }}</td>
+                  <td>{{ os.tipo_manut }}</td>
+                  <td><a href="{% url 'pdf_rel_assisTec_urls' os.pk %}"><span class="glyphicon glyphicon-print"></span></a></td>
+                  <td><a href="" class="trash-item-xl"><span class="glyphicon glyphicon-trash"></span></a></td>
+                </tr>
+            </tbody>
         {% endfor %}
-    </lu>
-    <a href="{% url 'create_os_leo' %}" class="btn btn-primary">NOVA O.S.</a>
-    <a href="{% url 'menuPrincipal_urls' %}" class="btn btn-danger">VOLTAR</a>
-<br>
-<br>
-<br>
-<br>
+    </table>
+
 <br>
 
 <h4>** = NÃO FOI IMPLEMENTADO AINDA!</h4>

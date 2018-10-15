@@ -4,17 +4,19 @@
 
 {% block main %}
 
-   <h1>CONSULTA CLIENTES</h1>
+   <h1>CONSULTA DE CLIENTES</h1>
     <form>
         Razão Social/Nome.:   <input type="text" id="razNome" name="razNome">
         CNPJ.:   <input type="text" id="cnpj" name="cnpj">
         CPF.:   <input type="text"  id="cpf" name="cpf">
-
-        <button type="submit">BUSCAR</button>
+        <br><br>
+        <button type="submit" class="btn btn-success">BUSCAR</button>
         <button type="reset" class="btn btn-warning">LIMPAR</button>
         <a href="{% url 'novoCliente_urls' %}" class="btn btn-primary">Novo Cliente</a>
         <a href="{% url 'menuPrincipal_urls' %}" class="btn btn-danger">VOLTAR</a>
-    </form><br><br>
+    </form>
+
+    <br><br>
 
     <!--LISTA DE CLIENTES-->
     <table class="table">
