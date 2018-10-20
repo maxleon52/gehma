@@ -31,9 +31,9 @@ class tb_os(models.Model):
     dataFinalOs = models.DateField("DATA FINAL",auto_now_add=False)
     cliCod = models.ForeignKey(tb_clientes, null=True, blank=True, on_delete=models.SET_NULL)
     equipCod = models.ForeignKey(tb_equip, null=True, blank=True, on_delete=models.SET_NULL)
-    tipo_serv = models.CharField("TIPO DE SERVIÇO",max_length=8, choices=TIPO_SERV)
-    tipo_manut = models.CharField("TIPO DE MANUTENÇÃO",max_length=10, choices=TIPO_MANUT)
-    tipo_aterramento = models.CharField("TIPO DE ATERRAMENTO", max_length=3, choices=TIPO_ATERRAMENTO)
+    tipo_serv = models.CharField("SERVIÇO",max_length=8, choices=TIPO_SERV)
+    tipo_manut = models.CharField("MANUTENÇÃO",max_length=10, choices=TIPO_MANUT)
+    tipo_aterramento = models.CharField("ATERRAMENTO", max_length=3, choices=TIPO_ATERRAMENTO)
 
     def __str__(self):
         return 'Nº O.S.: ' + str(self.cod) + ' -- ' + str(self.tipo_serv)

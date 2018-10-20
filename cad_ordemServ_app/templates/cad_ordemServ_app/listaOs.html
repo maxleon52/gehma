@@ -6,7 +6,7 @@
 
     <h1>LISTA ORDEM DE SERVIÇO</h1>
     <form>
-        **Nº DA O.S.:   <input type="text" id="numOs" name="numOs"> <!--CODIGO NÃO IMPLEMENTADO-->
+        Nº DA O.S.:   <input type="text" id="numOs" name="numOs"> <!--CODIGO NÃO IMPLEMENTADO-->
         **NOME.:   <input type="text" id="nome" name="nome"> <!--CODIGO NÃO IMPLEMENTADO-->
         **CNPJ.:   <input type="text" id="cnpj" name="cnpj"> <!--CODIGO NÃO IMPLEMENTADO-->
         **CPF.:    <input type="text" id="cpf" name="cpf"> <!--CODIGO NÃO IMPLEMENTADO-->
@@ -33,7 +33,6 @@
             </tr>
       </thead>
 
-
     <!--LISTA DE ORDEM DE SERVIÇOS-->
         {% for os in lista %}
             <tbody>
@@ -46,7 +45,7 @@
                   <td>{{ os.tipo_serv }}</td>
                   <td>{{ os.tipo_manut }}</td>
                   <td><a href="{% url 'pdf_rel_assisTec_urls' os.pk %}"><span class="glyphicon glyphicon-print"></span></a></td>
-                  <td><a href="" class="trash-item-xl"><span class="glyphicon glyphicon-trash"></span></a></td>
+                  <td><a href="{% url 'deleteOs_urls' os.pk %}" class="trash-item-xl"><span class="glyphicon glyphicon-trash"></span></a></td>
                 </tr>
             </tbody>
         {% endfor %}

@@ -5,15 +5,17 @@
 {% block main %}
 
 <h1>HISTORICO DO EQUIPAMENTO</h1>
-
     <ol>
         {% for item in hist %}
             <li>
-                {{ item }}
+                <b>DATA:</b> <i>{{ item.data|date:"d/m/y" }}</i><br>
+                <b>RECLAMADO:</b> <i>{{ item.histReclamado }}</i><br>
+                <b>CONSTATADO:</b> <i>{{ item.hConstatado }}</i><br>
+                <b>REALIZADO:</b> <i>{{ item.hServRealizado }}</i><br>
             </li>
         {% endfor %}
     </ol><br>
-    <a href="{% url 'listaEquip' %}">VOLTAR</a>
+    <a href="{% url 'listaEquip' %}" class="btn btn-secondary">VOLTAR</a>
 
 <h4>** = NÃO FOI IMPLEMENTADO AINDA!</h4>
 {% endblock %}

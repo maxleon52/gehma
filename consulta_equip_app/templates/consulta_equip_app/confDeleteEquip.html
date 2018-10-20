@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load bootstrap %}
+
 
 {% block title%}GEMAH{% endblock %}
 
@@ -8,10 +10,10 @@
 
      <form method="POST" enctype="multipart/form-data"> <!--atributo enctype manda os arquivos de midia para o BD, mas na VIEW deve ter REQUEST.FILES-->
         {% csrf_token %}
-        {{ form }}
+        {{ form|bootstrap_horizontal:'col-lg-1 col-sm-4' }}
+        <button type="submit" class="btn btn-danger">DELETAR</button></a>
+        <a href="{% url 'listaEquip' %}" class="btn btn-secondary">VOLTAR</a>
+     </form>
 
-        <button type="submit">DELETAR</button></a><br>
-        <a href="{% url 'listaEquip' %}">VOLTAR</a>
-    </form>
 
 {% endblock %}

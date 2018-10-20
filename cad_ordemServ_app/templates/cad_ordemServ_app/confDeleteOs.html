@@ -6,15 +6,16 @@
 {% block main %}
 
 
- <h1>DESEJA REALMENTE DELETAR ESSE CADASTRO? 1</h1>
+ <h1>DESEJA REALMENTE DELETAR ESSA O.S.?</h1>
     <form method="POST" enctype="multipart/form-data"> <!--atributo enctype manda os arquivos de midia para o BD, mas na VIEW deve ter REQUEST.FILES-->
         {% csrf_token %}
-        {{ form|bootstrap_horizontal:'col-lg-1 col-sm-4' }}
+        {{ form|bootstrap }}
 
         <button type="submit" class="btn btn-danger">DELETAR</button>
         <a href="{% url 'listaOrdemServico_urls' %}" class="btn btn-secondary">VOLTAR</a>
     </form>
     <br><br>
+
 
 
 

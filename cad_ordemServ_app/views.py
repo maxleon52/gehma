@@ -18,12 +18,12 @@ from django_xhtml2pdf.utils import generate_pdf
 
 def listaOrdemServico(request):
     numOs = request.GET.get('numOs', None)
-    #nome = request.GET.get('nome', None)
-    #cnpj = request.GET.get('cnpj', None)
-    #cpf = request.GET.get('cpf', None)
+    nome = request.GET.get('nome', None)
+    cnpj = request.GET.get('cnpj', None)
+    cpf = request.GET.get('cpf', None)
 
-    if numOs: #or nome or cnpj or cpf:
-        lista = tb_os.objects.filter(cod__icontains=numOs)#, nome__icontains=nome, cnpj__icontains=cnpj, cpf__icontains=cpf)  # CONSULTA NO MODEL (BD) E ARMAZENA NA VARIAVEL
+    if numOs:
+        lista = tb_os.objects.filter(cod__icontains=numOs)
     else:
         lista = tb_os.objects.all()
     
@@ -39,6 +39,19 @@ def atualizaOs(request, id):
         return redirect('listaOrdemServico_urls') #REDIRECIONA PARA A LISTA...MAS SERIA INTERESSANTE REDIRECIONAR PARA UM JS COM A MENSAGEM SUCESSO.
 
     return render(request, 'cad_ordemServ_app/editOs.html', {'form_os': form})
+
+def deleteOs(request, id):
+    os = get_object_or_404(tb_os, pk=id)
+    form = OsForm(request.POST or None, request.FILES or None,
+                       instance=os)  # REQUEST.POST MANDA PARA O BANCO...REQUEST.FILES MANDA OS ASQUIVOS DE MIDIA, POREM NO HTML DEVE TER O ENCTYPER PREENCHIDO
+
+    if request.method == 'POST':
+        os.delete()
+        return redirect('listaOrdemServico_urls')
+
+    return render(request, 'cad_ordemServ_app/confDeleteOs.html', {'form': form})
+
+
 
 # LISTAR CLIENTES
 def lista_clientes_os(request):
@@ -109,9 +122,9 @@ class CreateOs(TemplateView):
                 hConstatado=os.defConstatado,
                 hServRealizado=os.ServRealizado,
                 hEquipCod=os.equipCod,
-                hOsCod=os.cod
+                hOsCod=os
             )
-            return render(request, 'cad_ordemServ_app/listaOs.html')
+            return redirect('listaOrdemServico_urls')
 
 
 #Django-xhtml2pdf
