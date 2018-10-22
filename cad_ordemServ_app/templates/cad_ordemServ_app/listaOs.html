@@ -39,9 +39,9 @@
                 <tr>
                   <th scope="row"><a href="{% url 'atualizaOs_urls' os.pk %}">{{ os.cod }}</a></th>
                   <td>{{ os.dataOs|date:"d/m/Y" }}</td>
-                  <td>{{ os.cliCod.nome }}</td>
-                  <td>{{ os.cliCod.cnpj }}</td>
-                  <td>{{ os.cliCod.cpf }}</td>
+                  <td>{{ os.cliNome }}</td>
+                  <td>{{ os.cliCnpj }}</td>
+                  <td>{{ os.cliCpf }}</td>
                   <td>{{ os.tipo_serv }}</td>
                   <td>{{ os.tipo_manut }}</td>
                   <td><a href="{% url 'pdf_rel_assisTec_urls' os.pk %}"><span class="glyphicon glyphicon-print"></span></a></td>

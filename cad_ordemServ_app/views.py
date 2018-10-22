@@ -115,6 +115,12 @@ class CreateOs(TemplateView):
             equip = get_object_or_404(tb_equip, pk=self.request.POST['equip'])
             os.cliCod = client
             os.cliNome = client.nome
+            os.cliCep = client.cep
+            os.cliContato = client.contato
+            os.cliEndereco = client.endereco
+            os.cliBairro = client.bairro
+            os.cliCidade = client.cidade
+            os.cliUf = client.uf
             os.cliCnpj = client.cnpj
             os.cliCpf = client.cpf
             os.equipCod = equip
