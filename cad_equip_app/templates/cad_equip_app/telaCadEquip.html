@@ -6,11 +6,42 @@
 
 {% block main %}
 
-  <h1 class="titulo">CADASTROS DE EQUIPAMENTOS</h1><br>
+  <h1 class="titulo">CADASTRO DE EQUIPAMENTO</h1><br>
 
     <form method="POST" enctype="multipart/form-data"> <!--atributo enctype manda os arquivos de midia para o BD, mas na VIEW deve ter REQUEST.FILES-->
         {% csrf_token %}
-        {{ form|bootstrap }}
+
+        <div class="row">
+            <div class="col-md-6">
+                {{ form.nome|bootstrap }}
+            </div>
+            <div class="col-md-6">
+                {{ form.modelo|bootstrap }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                {{ form.marca|bootstrap }}
+            </div>
+            <div class="col-md-2">
+                {{ form.tensao|bootstrap }}
+            </div>
+            <div class="col-md-2">
+                {{ form.proxManu|bootstrap }}
+            </div>
+            <div class="col-md-2">
+                {{ form.numSerie|bootstrap }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                {{ form.fotoFrente|bootstrap }}
+            </div>
+            <div class="col-md-5">
+                {{ form.fotoVerso|bootstrap }}
+            </div>
+        </div>
+
 
         <button type="submit" class="btn btn-success">SALVAR</button>
         <button type="reset" class="btn btn-warning">LIMPAR</button>

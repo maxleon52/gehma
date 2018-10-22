@@ -22,8 +22,8 @@ def listaOrdemServico(request):
     cnpj = request.GET.get('cnpj', None)
     cpf = request.GET.get('cpf', None)
 
-    if numOs:
-        lista = tb_os.objects.filter(cod__icontains=numOs)
+    if numOs or nome or cnpj or cpf:
+        lista = tb_os.objects.filter(cod__icontains=numOs, cliNome__icontains=nome, cliCnpj__icontains=cnpj, cliCpf__icontains=cpf)
     else:
         lista = tb_os.objects.all()
     
@@ -114,6 +114,9 @@ class CreateOs(TemplateView):
             client = get_object_or_404(tb_clientes, pk=self.request.POST['client'])
             equip = get_object_or_404(tb_equip, pk=self.request.POST['equip'])
             os.cliCod = client
+            os.cliNome = client.nome
+            os.cliCnpj = client.cnpj
+            os.cliCpf = client.cpf
             os.equipCod = equip
             os.save()
             #Historico

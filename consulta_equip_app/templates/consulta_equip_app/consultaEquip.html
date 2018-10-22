@@ -6,16 +6,15 @@
 
  <h1>CONSULTA DE EQUIPAMENTOS</h1>
     <form action="">
-        Tipo/Nome.:   <input type="text" name="tipoNome"> <!--CODIGO NÃO IMPLEMENTADO-->
-        Modelo.:   <input type="text" name="modelo"> <!--CODIGO NÃO IMPLEMENTADO-->
-        Nº de Série.:    <input type="text" name="numSerie"> <!--CODIGO NÃO IMPLEMENTADO-->    <br><br>
+        <b>Tipo/Nome.:</b>   <input type="text" name="tipoNome"> <!--CODIGO NÃO IMPLEMENTADO-->
+        <b>Modelo.:</b>   <input type="text" name="modelo"> <!--CODIGO NÃO IMPLEMENTADO-->
+        <b>Nº de Série.:</b>    <input type="text" name="numSerie"> <!--CODIGO NÃO IMPLEMENTADO-->    <br><br>
         <button type="submit" class="btn btn-success">BUSCAR</button>
         <button type="reset" class="btn btn-warning">LIMPAR</button>
         <a href="{% url 'novoEquip_urls' %}" class="btn btn-primary">Novo Equipamento</a>
         <a href="{% url 'menuPrincipal_urls' %}" class="btn btn-danger">VOLTAR</a>
     </form>
-
-<h1>LISTA DE EQUIPAMENTOS</h1>
+    <br><br>
     <table class="table">
         <thead>
             <tr>
