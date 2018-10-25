@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
+from django.contrib.auth.decorators import login_required
 from cad_clientes_app.models import tb_clientes
 from cad_equip_app.models import tb_equip
 from cad_ordemServ_app.models import tb_os, tb_historico
@@ -15,7 +16,7 @@ from django.core import serializers
 # LISTA ORDEM DE SERVIÇO
 from django_xhtml2pdf.utils import generate_pdf
 
-
+@login_required
 def listaOrdemServico(request):
     numOs = request.GET.get('numOs', None)
     nome = request.GET.get('nome', None)
@@ -30,6 +31,7 @@ def listaOrdemServico(request):
     return render(request, 'cad_ordemServ_app/listaOs.html', {'lista': lista})
 
 # ATUALIZA ORDEM DE SERVIÇO
+@login_required
 def atualizaOs(request, id):
     os = get_object_or_404(tb_os, pk=id)
     form = OsEditForm(request.POST or None, request.FILES or None, instance=os)
@@ -40,6 +42,9 @@ def atualizaOs(request, id):
 
     return render(request, 'cad_ordemServ_app/editOs.html', {'form_os': form})
 
+
+#DELETA ORDEM DE SERVIÇO
+@login_required
 def deleteOs(request, id):
     os = get_object_or_404(tb_os, pk=id)
     form = OsForm(request.POST or None, request.FILES or None,
@@ -54,16 +59,19 @@ def deleteOs(request, id):
 
 
 # LISTAR CLIENTES
+@login_required
 def lista_clientes_os(request):
     lista = tb_clientes.objects.all()  # CONSULTA NO MODEL (BD) E ARMAZENA NA VARIAVEL
     return render(request, 'cad_ordemServ_app/listaCliente_os.html',{'lista': lista})  # MOSTRANDO O TEMPLATE E A CONSULTA NO BANCO
 
 # LISTAR EQUIPAMENTOS
+@login_required
 def lista_Equip_os(request):
     lista = tb_equip.objects.all()  # CONSULTA NO MODEL (BD) E ARMAZENA NA VARIAVEL
     return render(request, 'cad_ordemServ_app/listaEquip.html',{'lista': lista})  # MOSTRANDO O TEMPLATE E A CONSULTA NO BANCO
 
 # SELECIONA CLIENTES NA TELA DE OS
+@login_required
 def SelecClientes_os(request, id):
     cliente = get_object_or_404(tb_clientes, pk=id)
     #request.session['cliente'] = serializers.serialize('json', [cliente])
@@ -72,6 +80,7 @@ def SelecClientes_os(request, id):
     return render(request, 'cad_ordemServ_app/telaCadOrdemServ.html', {'formCli': formCli})
 
 # SELECIONA EQUIPAMENTOS NA TELA DE OS
+@login_required
 def SelecEquip_os(request, id):
     equip = get_object_or_404(tb_equip, pk=id)
     #cliente = serializers.deserialize('json', request.session['cliente'])
@@ -83,6 +92,7 @@ def SelecEquip_os(request, id):
     return render(request, 'cad_ordemServ_app/telaCadOrdemServ.html', {'formEquip': formEquip})
 
 #REDIRECIONA PRA GERAR UMA NOVA OS
+@login_required
 def novaOS(request):
     return render(request, 'cad_ordemServ_app/os.html')
 
@@ -124,6 +134,7 @@ class CreateOs(TemplateView):
             os.cliCnpj = client.cnpj
             os.cliCpf = client.cpf
             os.equipCod = equip
+            os.status = str("ABERTO")
             os.save()
             #Historico
             tb_historico.objects.create(
@@ -137,7 +148,22 @@ class CreateOs(TemplateView):
 
 
 #Django-xhtml2pdf
+@login_required
 def pdf_rel_assisTec(request, id):
     os = get_object_or_404(tb_os, pk=id)
 
     return render(request, 'cad_ordemServ_app/pdf_rel_assisTec.html',{'os':os})
+
+
+
+#FINALIZA ou REABRE OS
+def finalizaOs(request, id):
+    os = get_object_or_404(tb_os, pk=id)
+    if str(os.status) == str('ABERTO'):
+        os.status = str('FINALIZADO')
+        os.save()
+    elif str(os.status) == str('FINALIZADO'):
+        os.status = str('ABERTO')
+        os.save()
+    else:
+        return redirect('listaOrdemServico_urls')

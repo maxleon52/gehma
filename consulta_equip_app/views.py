@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from cad_equip_app.models import tb_equip
 from cad_ordemServ_app.models import tb_historico
 from cad_equip_app.forms import equipForm
@@ -7,6 +8,7 @@ from cad_equip_app.forms import equipForm
 # Create your views here.
 
 # LISTA EQUIPAMENTOS
+@login_required
 def listaEquip(request):
     tipoNome = request.GET.get('tipoNome', None)
     modelo = request.GET.get('modelo', None)
@@ -21,6 +23,7 @@ def listaEquip(request):
 
 
 # ATUALIZA EQUIPAMENTOS
+@login_required
 def atualizaEquip(request, id):
     equip = get_object_or_404(tb_equip, pk=id)
     form = equipForm(request.POST or None, request.FILES or None, instance=equip)
@@ -34,6 +37,7 @@ def atualizaEquip(request, id):
 
 
 # DELETA EQUIPAMENTOS
+@login_required
 def deleteEquip(request, id):
     equip = get_object_or_404(tb_equip, pk=id)
     form = equipForm(request.POST or None, request.FILES or None,
@@ -46,7 +50,10 @@ def deleteEquip(request, id):
     return render(request, 'consulta_equip_app/confDeleteEquip.html', {'form': form})
 
 
+#HISTORICO DO EQUIPAMENTO
+@login_required
 def historicoOs(request, id):
     hist = tb_historico.objects.filter(hEquipCod=id)
+
 
     return render(request, 'consulta_equip_app/historico.html', {'hist': hist})

@@ -1,21 +1,28 @@
-{% extends 'base.html' %}
+<!doctype html>
 {% load bootstrap %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css"
+          rel="stylesheet"/>
 
-
-{% block title%}GEMAH-LOGIN{% endblock %}
-
-{% block main %}
-<div class="row">
-  <div class="col-md-12 col-md-offset-4">
-        <h2>Login</h2>
-        <form method="post" style="width:30%">
-            {% csrf_token %}
-            {{ form|bootstrap }}
-            <button type="submit" class="btn btn-info">ENTRAR</button>
-        </form>
-  </div>
-</div>
-
-
-{% endblock %}
-
+<body>
+    <div class="row">
+        <div class="col-md-12 col-md-offset-4">
+            <h2>Login</h2>
+            <form method="post" style="width:30%">
+                {% csrf_token %}
+                {{ form|bootstrap }}
+                <button type="submit" class="btn btn-info">ENTRAR</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -65,6 +65,7 @@ def deleteCliente(request, id):
 
 
 #Django-xhtml2pdf
+@login_required
 #@pdf_decorator
 def pdf_generation_cliente(request, id):
     #resp = HttpResponse(content_type='application/pdf')

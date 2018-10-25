@@ -43,6 +43,7 @@ class tb_os(models.Model):
     tipo_serv = models.CharField("SERVIÇO",max_length=8, choices=TIPO_SERV)
     tipo_manut = models.CharField("MANUTENÇÃO",max_length=10, choices=TIPO_MANUT)
     tipo_aterramento = models.CharField("ATERRAMENTO", max_length=3, choices=TIPO_ATERRAMENTO)
+    status = models.CharField("STATUS", max_length=10, null='True', blank='True')
 
     def __str__(self):
         return 'Nº O.S.: ' + str(self.cod) + ' -- ' + str(self.tipo_serv)
