@@ -9,10 +9,11 @@
         <b>Tipo/Nome.:</b>   <input type="text" name="tipoNome"> <!--CODIGO NÃO IMPLEMENTADO-->
         <b>Modelo.:</b>   <input type="text" name="modelo"> <!--CODIGO NÃO IMPLEMENTADO-->
         <b>Nº de Série.:</b>    <input type="text" name="numSerie"> <!--CODIGO NÃO IMPLEMENTADO-->    <br><br>
-        <button type="submit" class="btn btn-success">BUSCAR</button>
-        <button type="reset" class="btn btn-warning">LIMPAR</button>
-        <a href="{% url 'novoEquip_urls' %}" class="btn btn-primary">Novo Equipamento</a>
-        <a href="{% url 'menuPrincipal_urls' %}" class="btn btn-danger">VOLTAR</a>
+
+        <button type="submit" class="btn btn-success" style='font-size:17px'><i class='fas fa-search' style='font-size:24px'></i> BUSCAR</button>
+        <button type="reset" class="btn btn-warning" style='font-size:17px'><i class='fas fa-eraser' style='font-size:24px'></i> LIMPAR</button>
+        <a href="{% url 'novoEquip_urls' %}" class="btn btn-primary" style='font-size:17px'><i class='fas fa-user-plus' style='font-size:24px'></i> NOVO EQUIP</a>
+        <a href="{% url 'menuPrincipal_urls' %}" class="btn btn-danger" style='font-size:17px'><i class='far fa-share-square' style='font-size:24px'></i> VOLTAR</a>
     </form>
     <br><br>
     <table class="table">
@@ -23,6 +24,8 @@
               <th scope="col">MODELO</th>
               <th scope="col">MARCA</th>
               <th scope="col">Nº SÉRIE</th>
+              <th scope="col">PROX. MANU.</th>
+              <th scope="col">E-MAIL</th>
               <th scope="col">HISTÓRICO</th>
               <th scope="col">APAGAR</th>
             </tr>
@@ -36,6 +39,8 @@
                   <td>{{ equip.modelo }}</td>
                   <td>{{ equip.marca }}</td>
                   <td>{{ equip.numSerie }}</td>
+                  <td>{{ equip.proxManu|date:"d/m/Y" }}</td>
+                  <td><a href="{% url 'geraEmail_urls' equip.cod %}"><span class="glyphicon glyphicon-envelope"></span></a></td>
                   <td><a href="{% url 'historico_urls' equip.cod %}"><span class="glyphicon glyphicon-print"></span></a></td>
                   <td><a href="{% url 'deleteEquip' equip.cod %}"><span class="glyphicon glyphicon-trash"></span></a></td>
                 </tr>

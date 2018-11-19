@@ -1,8 +1,11 @@
+from datetime import date, datetime
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from cad_equip_app.models import tb_equip
 from cad_ordemServ_app.models import tb_historico
 from cad_equip_app.forms import equipForm
+from django.core.mail import send_mail
 
 
 # Create your views here.
@@ -50,10 +53,29 @@ def deleteEquip(request, id):
     return render(request, 'consulta_equip_app/confDeleteEquip.html', {'form': form})
 
 
-#HISTORICO DO EQUIPAMENTO
+def geraEmail(request, id):
+    equip = get_object_or_404(tb_equip, pk=id)
+    return render(request, 'consulta_equip_app/geraEmail.html', {'equip': equip})
+
+
+@login_required
+def enviarEmail(request, id):
+    equip = get_object_or_404(tb_equip, pk=id)
+    nome = equip.nome
+    data = equip.proxManu.strftime('%d/%m/%Y')
+    para = request.POST.get('para', None) #Variavel 'para' é o nome do campo no formulario
+    send_mail(
+        'TESTE ENVIO EMAIL GMAIL',
+        'O equipamento %s tem uma revisão agenda para o dia %s.' % (nome, data),
+        'maxleon522@gmail.com',
+        [para],
+        fail_silently=False,
+    )
+    return redirect('listaEquip')
+
+
+# HISTORICO DO EQUIPAMENTO
 @login_required
 def historicoOs(request, id):
     hist = tb_historico.objects.filter(hEquipCod=id)
-
-
     return render(request, 'consulta_equip_app/historico.html', {'hist': hist})

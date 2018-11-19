@@ -15,13 +15,11 @@ def lista_clientes(request):
     cpf = request.GET.get('cpf', None)
 
     if razNome or cnpj or cpf:
-        lista = tb_clientes.objects.filter(nome__icontains=razNome, cnpj__icontains=cnpj,
-                                           cpf__icontains=cpf)  # CONSULTA NO MODEL (BD) E ARMAZENA NA VARIAVEL
+        lista = tb_clientes.objects.filter(nome__icontains=razNome, cnpj__icontains=cnpj, cpf__icontains=cpf)  # CONSULTA NO MODEL (BD) E ARMAZENA NA VARIAVEL
     else:
         lista = tb_clientes.objects.all()  # CONSULTA NO MODEL (BD) E ARMAZENA NA VARIAVEL
 
-    return render(request, 'consulta_clientes_app/consultaClientes.html',
-                  {'lista': lista})  # MOSTRANDO O TEMPLATE E A CONSULTA NO BANCO
+    return render(request, 'consulta_clientes_app/consultaClientes.html',{'lista': lista})  # MOSTRANDO O TEMPLATE E A CONSULTA NO BANCO
 
 
 # METODO QUE REDIRECIONA A PAGINA e GERA O FORM NA TELA
@@ -66,7 +64,7 @@ def deleteCliente(request, id):
 
 #Django-xhtml2pdf
 @login_required
-#@pdf_decorator
+@pdf_decorator
 def pdf_generation_cliente(request, id):
     #resp = HttpResponse(content_type='application/pdf')
     #result = generate_pdf('cad_clientes_app/teste.html', file_object=resp)

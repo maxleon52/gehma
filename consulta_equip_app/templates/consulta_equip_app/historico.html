@@ -12,11 +12,12 @@
                 <b>RECLAMADO:</b> <i>{{ item.histReclamado }}</i><br>
                 <b>CONSTATADO:</b> <i>{{ item.hConstatado }}</i><br>
                 <b>REALIZADO:</b> <i>{{ item.hServRealizado }}</i><br>
-                <b>Nº da O.S.:</b> {{ item.hOsCod }}
+                <b>Nº da O.S.:</b> {{ item.hOsCod }}<br>
+                <b>-------------------------------------------------------------------------------------------------------------------</b>
             </li>
         {% endfor %}
     </ol><br>
-    <a href="{% url 'listaEquip' %}" class="btn btn-secondary">VOLTAR</a>
+    <a href="{% url 'listaEquip' %}" class="btn btn-secondary" style='font-size:17px'><i class='far fa-share-square' style='font-size:24px'></i> VOLTAR</a>
 
 <h4>** = NÃO FOI IMPLEMENTADO AINDA!</h4>
 {% endblock %}

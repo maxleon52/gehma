@@ -11,8 +11,8 @@
         {% csrf_token %}
         {{ form|bootstrap_horizontal:'col-lg-1 col-sm-4' }}
 
-        <button type="submit" class="btn btn-danger">DELETAR</button>
-        <a href="{% url 'listaOrdemServico_urls' %}" class="btn btn-secondary">VOLTAR</a>
+        <button type="submit" class="btn btn-danger" style='font-size:17px'><i class='fas fa-trash-alt' style='font-size:24px'></i> DELETAR</button>
+        <a href="{% url 'lista_clientes' %}" class="btn btn-secondary" style='font-size:17px'><i class='far fa-share-square' style='font-size:24px'></i> VOLTAR</a>
     </form>
     <br><br>
 

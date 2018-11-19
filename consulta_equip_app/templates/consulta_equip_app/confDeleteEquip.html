@@ -11,8 +11,9 @@
      <form method="POST" enctype="multipart/form-data"> <!--atributo enctype manda os arquivos de midia para o BD, mas na VIEW deve ter REQUEST.FILES-->
         {% csrf_token %}
         {{ form|bootstrap_horizontal:'col-lg-1 col-sm-4' }}
-        <button type="submit" class="btn btn-danger">DELETAR</button></a>
-        <a href="{% url 'listaEquip' %}" class="btn btn-secondary">VOLTAR</a>
+
+        <button type="submit" class="btn btn-danger" style='font-size:17px'><i class='fas fa-trash-alt' style='font-size:24px'></i> DELETAR</button>
+        <a href="{% url 'listaEquip' %}" class="btn btn-secondary" style='font-size:17px'><i class='far fa-share-square' style='font-size:24px'></i> VOLTAR</a>
      </form>
 
 

@@ -1,20 +1,21 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title%}GEMAH-MENU{% endblock %}
 
 {% block main %}
 
-    <h1>LISTA ORDEM DE SERVIÇO</h1>
+    <h1>CONSULTA ORDEM DE SERVIÇO</h1>
     <form>
         <b>Nº DA O.S.:</b>   <input type="text" id="numOs" name="numOs"> <!--CODIGO NÃO IMPLEMENTADO-->
-        <b>**NOME.:</b>   <input type="text" id="nome" name="nome"> <!--CODIGO NÃO IMPLEMENTADO-->
-        <b>**CNPJ.:</b>   <input type="text" id="cnpj" name="cnpj"> <!--CODIGO NÃO IMPLEMENTADO-->
-        <b>**CPF.:</b>    <input type="text" id="cpf" name="cpf"> <!--CODIGO NÃO IMPLEMENTADO-->
+        <b>NOME.:</b>   <input type="text" id="nome" name="nome"> <!--CODIGO NÃO IMPLEMENTADO-->
+        <b>CNPJ.:</b>   <input type="text" id="cnpj" name="cnpj"> <!--CODIGO NÃO IMPLEMENTADO-->
+        <b>CPF.:</b>    <input type="text" id="cpf" name="cpf"> <!--CODIGO NÃO IMPLEMENTADO-->
         <br><br>
-        <button type="submit" class="btn btn-success">BUSCAR</button>
-        <button type="reset" class="btn btn-warning">LIMPAR</button>
-        <a href="{% url 'create_os_leo' %}" class="btn btn-primary">NOVA O.S.</a>
-        <a href="{% url 'menuPrincipal_urls' %}" class="btn btn-danger">VOLTAR</a>
+        <button type="submit" class="btn btn-success" style='font-size:17px'><i class='fas fa-search' style='font-size:24px'></i> BUSCAR</button>
+        <button type="reset" class="btn btn-warning" style='font-size:17px'><i class='fas fa-eraser' style='font-size:24px'></i> LIMPAR</button>
+        <a href="{% url 'create_os_leo' %}" class="btn btn-primary"style='font-size:17px'><i class='fas fa-plus-circle' style='font-size:24px'></i> NOVA O.S.</a>
+        <a href="{% url 'menuPrincipal_urls' %}" class="btn btn-danger" style='font-size:17px'><i class='far fa-share-square' style='font-size:24px'></i> VOLTAR</a>
     </form>
     <br><br>
 
@@ -39,7 +40,7 @@
             <tbody>
                 <tr>
                   <th scope="row"><a href="{% url 'atualizaOs_urls' os.pk %}">{{ os.cod }}</a></th>
-                  <td><a href="{% url 'finalizaOs_urls' os.pk %}" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-ok-sign"></span> {{ os.status }}</a></td>
+                  <td><a href="{% url 'finalizaOs_urls' os.pk %}" onclick="alert('ALTERADO COM SUCESSO!');"><span class="glyphicon glyphicon-ok-sign"></span> {{ os.status }}</a></td>
                   <td>{{ os.dataOs|date:"d/m/Y" }}</td>
                   <td>{{ os.cliNome }}</td>
                   <td>{{ os.cliCnpj }}</td>
@@ -52,32 +53,6 @@
             </tbody>
         {% endfor %}
     </table>
-
-<!--MODAL SUCESSO -->
-<div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-
-        <!-- Modal body -->
-        <div class="modal-body">
-          Modal body..
-        </div>
-
-        <!-- Modal footer -->
-        <div class="modal-footer">
-            <a href="{% url 'listaOrdemServico_urls' %}" class="btn btn-danger">SAIR</a>
-        </div>
-
-      </div>
-    </div>
-  </div>
-<!-- FIM DO MODAL SUCESSO -->
 <br>
 
 <h4>** = NÃO FOI IMPLEMENTADO AINDA!</h4>

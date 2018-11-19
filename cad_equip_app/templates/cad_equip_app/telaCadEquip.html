@@ -8,7 +8,7 @@
 
   <h1 class="titulo">CADASTRO DE EQUIPAMENTO</h1><br>
 
-    <form method="POST" enctype="multipart/form-data"> <!--atributo enctype manda os arquivos de midia para o BD, mas na VIEW deve ter REQUEST.FILES-->
+    <form method="POST" enctype="multipart/form-data" onsubmit="alert('SALVO COM SUCESSO!');"> <!--atributo enctype manda os arquivos de midia para o BD, mas na VIEW deve ter REQUEST.FILES-->
         {% csrf_token %}
 
         <div class="row">
@@ -43,9 +43,10 @@
         </div>
 
 
-        <button type="submit" class="btn btn-success">SALVAR</button>
-        <button type="reset" class="btn btn-warning">LIMPAR</button>
-        <a href="{% url 'listaEquip' %}" class="btn btn-danger">VOLTAR</a>
+        <button type="submit" class="btn btn-success"><i class='far fa-save' style='font-size:24px'></i> SALVAR</button>
+        <button type="reset" class="btn btn-warning" style='font-size:17px'><i class='fas fa-eraser' style='font-size:24px'></i> LIMPAR</button>
+        <a href="{% url 'listaEquip' %}" class="btn btn-danger" style='font-size:17px'><i class='far fa-share-square' style='font-size:24px'></i> VOLTAR</a>
+
     </form>
 
 {% endblock %}

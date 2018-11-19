@@ -4,6 +4,42 @@
 {% block title%}GEMAH-MENU{% endblock %}
 
 {% block main %}
+<br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+              <div class="card-counter primary">
+                <i class='fas fa-users' style='font-size:64px'></i>
+                <span class="count-numbers">{{ dashCli }}</span>
+                <span class="count-name">CLIENTES</span>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card-counter danger">
+                <i class='fas fa-box' style='font-size:64px'></i>
+                <span class="count-numbers">{{ dashEquip }}</span>
+                <span class="count-name">EQUIPAMENTOS</span>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card-counter success">
+                <i class='far fa-edit' style='font-size:64px'></i>
+                <span class="count-numbers">{{ dashOs }}</span>
+                <span class="count-name">ORDEM SERVIÇOS</span>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card-counter info">
+                <i class='fas fa-bell' style='font-size:64px'></i>
+                <span class="count-numbers">{{ dashOs }}</span>
+                <span class="count-name">ORÇAMENTOS</span>
+              </div>
+            </div>
+        </div>
+    </div>
 
 <br><br>
 
