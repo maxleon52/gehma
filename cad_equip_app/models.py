@@ -13,3 +13,12 @@ class tb_equip(models.Model):
 
     def __str__(self):
         return str(self.nome) + ' ' + str(self.modelo) + ' ' + str(self.marca)
+
+
+class tb_orcamentos(models.Model):
+    nomeEquip = models.CharField(max_length=20)
+    qtd = models.CharField(max_length=8)
+    valorUnit = models.CharField(max_length=8)
+
+    def __str__(self):
+        return self.nomeEquip + ' '+ str(self.qtd) + str(self.valorUnit)

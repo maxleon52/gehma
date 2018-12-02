@@ -25,6 +25,7 @@
               <th scope="col">MARCA</th>
               <th scope="col">Nº SÉRIE</th>
               <th scope="col">PROX. MANU.</th>
+              <th scope="col">IMPRIMIR</th>
               <th scope="col">E-MAIL</th>
               <th scope="col">HISTÓRICO</th>
               <th scope="col">APAGAR</th>
@@ -40,8 +41,9 @@
                   <td>{{ equip.marca }}</td>
                   <td>{{ equip.numSerie }}</td>
                   <td>{{ equip.proxManu|date:"d/m/Y" }}</td>
+                  <td><a href="{% url 'fichaEquip_urls' equip.cod %}"><span class="glyphicon glyphicon-print"></span></a></td>
                   <td><a href="{% url 'geraEmail_urls' equip.cod %}"><span class="glyphicon glyphicon-envelope"></span></a></td>
-                  <td><a href="{% url 'historico_urls' equip.cod %}"><span class="glyphicon glyphicon-print"></span></a></td>
+                  <td><a href="{% url 'historico_urls' equip.cod %}"><span class="glyphicon glyphicon-folder-open"></span></a></td>
                   <td><a href="{% url 'deleteEquip' equip.cod %}"><span class="glyphicon glyphicon-trash"></span></a></td>
                 </tr>
           </tbody>

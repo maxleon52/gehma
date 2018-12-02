@@ -64,7 +64,7 @@ def deleteCliente(request, id):
 
 #Django-xhtml2pdf
 @login_required
-@pdf_decorator
+#@pdf_decorator #<<<< GERA DIRETAMENTE SEM PRECISAR ABRIR A TELA
 def pdf_generation_cliente(request, id):
     #resp = HttpResponse(content_type='application/pdf')
     #result = generate_pdf('cad_clientes_app/teste.html', file_object=resp)

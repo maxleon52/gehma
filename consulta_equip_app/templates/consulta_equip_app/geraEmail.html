@@ -7,10 +7,12 @@
      {% csrf_token %}
 
      <h1>ENVIANDO EMAIL...</h1>
-     <b>DE:</b> Gemah   <br>
-     <b>PARA: </b><input type="email" name="para">
+     <b>DE.:</b> GEMAH   <br>
+     <b>PARA.: </b><input type="email" name="para">
 
      <button type="submit">ENVIAR</button>
-</form>
+</form><br><br>
+<a href="{% url 'menuPrincipal_urls' %}"><button>CANCELAR</button></a>
+
 
 {% endblock %}

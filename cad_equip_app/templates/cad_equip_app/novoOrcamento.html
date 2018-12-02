@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+
+{% block title%}GEMAH{% endblock %}
+
+{% block main %}
+<h1>NOVO ORÇAMENTOS</h1>
+
+<form method="POST" enctype="multipart/form-data" onsubmit="alert('ORÇAMENTO SALVO COM SUCESSO!');"> <!--atributo enctype manda os arquivos de midia para o BD, mas na VIEW deve ter REQUEST.FILES-->
+        {% csrf_token %}
+
+        <div class="row">
+            <div class="col-md-4">
+                {{ form.nomeEquip|bootstrap }}
+            </div>
+            <div class="col-md-4">
+                {{ form.qtd|bootstrap }}
+            </div>
+            <div class="col-md-4">
+                {{ form.valorUnit|bootstrap }}
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success"><i class='far fa-save' style='font-size:24px'></i> SALVAR</button>
+        <button type="reset" class="btn btn-warning" style='font-size:17px'><i class='fas fa-eraser' style='font-size:24px'></i> LIMPAR</button>
+        <a href="{% url 'orcamentos_urls' %}" class="btn btn-danger" style='font-size:17px'><i class='far fa-share-square' style='font-size:24px'></i> VOLTAR</a>
+
+</form><br>
+
+{% endblock %}

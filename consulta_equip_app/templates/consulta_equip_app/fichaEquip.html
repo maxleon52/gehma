@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ficha do Equipamento</title>
+
+    <style>
+        h1{
+            text-align: center;
+        }
+        @media print {
+            #noprint {
+                display:none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>FICHA DO EQUIPAMENTO</h1>
+    <input id="noprint" type="button" name="print" value="Imprimir" onClick="javascript:window.print();"><br><br>
+    <fieldset>
+        <b>COD.:</b>{{equip.cod}}<br><br>
+        <b>EQUIPAMENTO.: </b>{{equip.nome}}<br><br>
+        <b>MODELO.:</b>{{equip.modelo}}<br><br>
+        <b>MARCA.:</b>{{equip.marca}}<br><br>
+        <b>TENSÃO.:</b>{{equip.tensao}}<br><br>
+        <b>PROXIMA MANUTENÇÃO.:</b>{{equip.proxManu}}<br><br>
+        <b>NÚMERO DE SÉRIE.:</b>{{equip.numSerie}}<br><br>
+    </fieldset><br>
+
+</body>
+</html>

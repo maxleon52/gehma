@@ -25,7 +25,6 @@
               <th scope="col">NOME</th>
               <th scope="col">CNPJ</th>
               <th scope="col">CPF</th>
-              <th scope="col">SALVAR</th>
               <th scope="col">IMPRIMIR</th>
               <th scope="col">APAGAR</th>
             </tr>
@@ -37,8 +36,7 @@
               <td><a href="{% url 'atualizaCliente' cliente.cod %}">{{ cliente.nome }}</a></td>
               <td>{{ cliente.cnpj }}</td>
               <td>{{ cliente.cpf }}</td>
-              <td><a href="{% url 'pdf_generation_cliente_urls' cliente.cod %}" class="print-mini"><span class="glyphicon glyphicon-save"></span></a></td>
-              <td><a href="#" class="print-mini" onclick="window.print()"><span class="glyphicon glyphicon-print"></span></a></td>
+              <td><a href="{% url 'pdf_generation_cliente_urls' cliente.cod %}" class="print-mini"><span class="glyphicon glyphicon-print"></span></a></td>
               <td><a href="{% url 'deleteCliente' cliente.cod %}" class="trash-item-xl"><span class="glyphicon glyphicon-trash"></span></a></td>
             </tr>
       </tbody>

@@ -9,6 +9,10 @@
         h1{
             text-align: center;
         }
+
+        @media print {
+            #noprint { display:none; }
+        }
     </style>
     <title>FICHA DE CADASTRO</title>
 
@@ -16,7 +20,8 @@
 </head>
 <body>
     <div>
-        <h1>FICHA DE CADASTRO</h1><br>
+        <h1>FICHA DE CADASTRO</h1>
+        <input id="noprint" type="button" name="print" value="Imprimir" onClick="javascript:window.print();">
 
         <fieldset>
             <legend><h3>IDENTIFICAÇÃO</h3></legend>
