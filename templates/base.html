@@ -76,7 +76,7 @@
         <li><a href="{% url 'listaEquip' %}">EQUIPAMENTOS</a></li>
         <li><a href="{% url 'listaOrdemServico_urls' %}">ORDEM DE SERVIÇO</a></li>
         <li><a href="#">*ORÇAMENTOS</a></li>
-        <li><a href="#">ABOUT...</a></li>
+        <li><a data-toggle="modal" href="#myModal">ABOUT...</a></li>
     </ul>
 
 </header>
@@ -90,6 +90,32 @@
         {% block main %}
 
         {% endblock %}
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">EQUIPE E AGRADECIMENTOS</h4>
+                </div>
+                <div class="modal-body">
+                  <p><b>Sistema desenvolvido para fins academico do curso de Sistemas de Informação,
+                     da Faculdade de Juazeiro do Norte - FJN.
+                     Equipe composta por:</b> Maxwell Alves, Deivis Gonçalves, Lucas Geremias, Francisco Macksuel, Hagleyson e Hysvi Joab.</p>
+                     <b><p>Agradecimentos especiais a:</p></b>
+                     <b><p>Leonardo Freitas</b> (Bacharel em Sistemas de Informação - FJN / Consulta: Django, python, SQL, ORM-Django, Front-End e Back-end)</p>
+                     <b><p>Vinicius Rodrigues e Samuel Rodrigues</b> (Professores da FJN)</p>
+                     <b><p>Vicente Lucas</b> (Aluno FJN - Consulta Front-end e CSS)</p>
+                     <b><p>Diogo Sobreira</b> (Aluno FJN - Ajudar com Bugs Back-end)</p>
+                     <b><p>Claydson Aliardo</b> (Consulta Banco de Dados e instruções SQL)</p>
+
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">FECHAR</button>
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

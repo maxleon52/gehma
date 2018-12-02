@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
+{% load bootstrap %}
 {% load widget_tweaks %}
 
 {% block title%}GEMAH-MENU{% endblock %}
 
 {% block main %}
         
-        <h1>NOVA ORDEM DE SERVIÇO - POR LÉO</h1>
+        <h1>ATUALIZAR ORDEM DE SERVIÇO</h1>
         
         <form method="POST">
                 {% csrf_token %}
@@ -28,48 +29,51 @@
 
                 </div>
 
-                <h5>DEFEITO/INTERVENÇÃO</h5>
-
                 <div class="row">
                     
                     <div class="col-sm-4">
-                        <label for="{{form_os.defReclamado.auto_id}}">Defeitos Reclamados</label>
-                        {% render_field form_os.defReclamado %}
+                        <label for="{{form_os.defReclamado.auto_id}}"></label>
+                        {% render_field form_os.defReclamado|bootstrap %}
                     </div>
 
                     <div class="col-sm-4">
-                        <label for="{{form_os.defConstatado.auto_id}}">Defeitos Constatados</label>
-                        {% render_field form_os.defConstatado %}
+                        <label for="{{form_os.defConstatado.auto_id}}"></label>
+                        {% render_field form_os.defConstatado|bootstrap %}
                     </div>
 
                     <div class="col-sm-4">
-                        <label for="{{form_os.ServRealizado.auto_id}}">Serviço Realizado</label>
-                        {% render_field form_os.ServRealizado %}
+                        <label for="{{form_os.ServRealizado.auto_id}}"></label>
+                        {% render_field form_os.ServRealizado|bootstrap %}
                     </div>
 
                     <div class="col-sm-4">
-                        <label for="{{form_os.dataInicioOs.auto_id}}">Data Inicio</label>
-                        {% render_field form_os.dataInicioOs %}
+                        <label for="{{form_os.dataInicioOs.auto_id}}"></label>
+                        {% render_field form_os.dataInicioOs|bootstrap %}
                     </div>
 
                     <div class="col-sm-4">
-                        <label for="{{form_os.dataFinalOs.auto_id}}">Data Término</label>
-                        {% render_field form_os.dataFinalOs %}
+                        <label for="{{form_os.dataFinalOs.auto_id}}"></label>
+                        {% render_field form_os.dataFinalOs|bootstrap %}
                     </div>
 
                     <div class="col-sm-4">
-                        <label for="{{form_os.tipo_serv.auto_id}}">Tipo de serviço</label>
-                        {% render_field form_os.tipo_serv %}
+                        <label for="{{form_os.tipo_serv.auto_id}}"></label>
+                        {% render_field form_os.tipo_serv|bootstrap %}
                     </div>
 
                     <div class="col-sm-4">
-                        <label for="{{form_os.tipo_manut.auto_id}}">Tipo de manutenção</label>
-                        {% render_field form_os.tipo_manut %}
+                        <label for="{{form_os.tipo_manut.auto_id}}"></label>
+                        {% render_field form_os.tipo_manut|bootstrap %}
                     </div>
 
                     <div class="col-sm-4">
-                        <label for="{{form_os.tipo_aterramento.auto_id}}">Tipo de aterramento</label>
-                        {% render_field form_os.tipo_aterramento %}
+                        <label for="{{form_os.tipo_aterramento.auto_id}}"></label>
+                        {% render_field form_os.tipo_aterramento|bootstrap %}
+                    </div>
+
+                    <div class="col-sm-2">
+                       <label for="{{form_os.valor.auto_id}}"></label>
+                       {% render_field form_os.valor|bootstrap %}
                     </div>
 
                     <div class="col-sm-4" style="margin-top: 25px">

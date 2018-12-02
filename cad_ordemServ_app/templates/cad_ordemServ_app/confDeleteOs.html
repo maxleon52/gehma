@@ -6,7 +6,7 @@
 {% block main %}
 
 
- <h1>DESEJA REALMENTE DELETAR ESSA O.S.?</h1>
+ <h1>DESEJA REALMENTE DELETAR A O.S. DE Nº {{os.cod}}?</h1>
     <form method="POST" enctype="multipart/form-data"> <!--atributo enctype manda os arquivos de midia para o BD, mas na VIEW deve ter REQUEST.FILES-->
         {% csrf_token %}
         <div class="row">
@@ -21,17 +21,17 @@
         <br>
 
         <div class="row">
-            <div class="col-sm-10">
+            <div class="col-sm-12">
                 {{ form.defReclamado|bootstrap }}
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-10">
+            <div class="col-sm-12">
                 {{ form.defConstatado|bootstrap }}
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-10">
+            <div class="col-sm-12">
                 {{ form.ServRealizado|bootstrap }}
             </div>
         </div>
@@ -54,6 +54,10 @@
 
             <div class="col-sm-2">
                 {{ form.tipo_aterramento|bootstrap }}
+            </div>
+
+            <div class="col-sm-2">
+                {{ form.valor|bootstrap }}
             </div>
         </div>
 

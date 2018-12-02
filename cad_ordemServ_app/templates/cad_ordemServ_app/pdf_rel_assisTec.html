@@ -21,11 +21,18 @@
     h1{
         text-align: center;
     }
+    @media print {
+            #noprint {
+                display:none;
+            }
+    }
     </style>
 </head>
 <body>
 <div>
     <h1>RELATÓRIO DE ASSISTÊNCIA TÉCNICA</h1>
+    <h1>O.S. Nº {{os.cod}}</h1>
+    <input id="noprint" type="button" name="print" value="Imprimir" onClick="javascript:window.print();"><br><br>
     <!-- CLIENTE-->
     <fieldset>
         <legend><b>DADOS DO CLIENTE</b></legend>
@@ -41,37 +48,14 @@
         <b>MODALIDADE:</b> {{os.tipo_serv}}<br>
         <b>TIPO DE EQUIPAMENTO:</b> {{os.equipCod.nome}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>MODELO:</b> {{os.equipCod.modelo}}<br>
         <b>Nº DE SÉRIE:</b> {{os.equipCod.numSerie}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>TENSÃO:</b> {{os.equipCod.tensao}}<br>
-        <b>SITUAÇÃO ATUAL:</b> 1-FUNCIONANDO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2-PARADO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-FUNCIONANDO COM RESTRIÇÕES &nbsp;&nbsp;&nbsp;&nbsp;**VER COM O CLIENTE SE VAI REALMENTE PRECISAR DESSE CAMPO
-        <br><br>
+
+        <br>
         <b>DEFEITO RECLAMADO:</b> {{os.defReclamado}}<br><br>
         <b>DEFEITO CONSTATADO:</b> {{os.defConstatado}}<br><br>
         <b>SERVIÇO REALIZADO:</b> {{os.ServRealizado}}<br><br>
-        <b>JUSTIFICATIVA:</b> **VER COM O CLIENTE SE VAI REALMENTE PRECISAR DESSE CAMPO <br><br>
-
-        <b>INSTRUMENTO DE MEDIÇÃO E CALIBRAÇÃO:</b>**VER COM O CLIENTE SE VAI REALMENTE PRECISAR DESSE CAMPO <br><br>
 
         <b>TIPO DE MANUTENÇÃO:</b> {{os.tipo_manut}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>ATERRAMENTO:</b> {{os.tipo_aterramento}}<br><br>
-
-    </fieldset>
-    <h3><b>PEÇAS UTILIZADAS</b></h3>
-    <table style="width:100%">
-      <tr>
-        <th>COD</th>
-        <th>QUANTIDADE</th>
-        <th>DESCRIÇÃO</th>
-      </tr>
-      <tr>
-        <td>00001</td>
-        <td>10</td>
-        <td>PARAFUSOS</td>
-      </tr>
-      <tr>
-        <td>00002</td>
-        <td>50</td>
-        <td>PORCAS</td>
-      </tr>
-    </table>
-    <br>
+        <b>VALOR:</b> R$ {{os.valor}}
 
     <h3>INTERVENÇÃO</h3>
     <table style="width:100%">
@@ -86,8 +70,7 @@
            <td>{{os.dataFinalOs}}</td>
         </tr>
     </table>
-    <br>
-
+    <br><br>
     <h3>DE ACORDO</h3>
     <table style="width:100%">
         <tr>

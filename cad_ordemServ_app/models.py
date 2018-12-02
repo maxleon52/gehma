@@ -44,9 +44,8 @@ class tb_os(models.Model):
     tipo_manut = models.CharField("MANUTENÇÃO",max_length=10, choices=TIPO_MANUT)
     tipo_aterramento = models.CharField("ATERRAMENTO", max_length=3, choices=TIPO_ATERRAMENTO)
     status = models.CharField("STATUS", max_length=10, null='True', blank='True')
-    equipProxManu = models.DateField("Proxima Manutenção", auto_now_add=False)
-
-
+    equipProxManu = models.DateField("PROX. MANUTENÇÃO", auto_now_add=False)
+    valor = models.DecimalField("VALOR", max_digits=9, decimal_places=2)
 
     def __str__(self):
         return 'Nº O.S.: ' + str(self.cod) + ' -- ' + str(self.tipo_serv)
