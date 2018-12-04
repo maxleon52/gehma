@@ -13,7 +13,7 @@ from django.core import serializers
 # LISTAR ORDEM DE SERVIÇOS e GERAR O FORM DE O.S.
 
 # LISTA ORDEM DE SERVIÇO
-from django_xhtml2pdf.utils import generate_pdf
+
 
 
 @login_required
