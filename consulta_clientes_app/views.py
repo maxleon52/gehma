@@ -3,8 +3,6 @@ from cad_clientes_app.models import tb_clientes
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 
-from django.http import HttpResponse
-from django_xhtml2pdf.utils import generate_pdf, pdf_decorator
 
 
 # CONSULTA CLIENTES
