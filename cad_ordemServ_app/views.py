@@ -27,7 +27,7 @@ def listaOrdemServico(request):
         lista = tb_os.objects.filter(cod__icontains=numOs, cliNome__icontains=nome, cliCnpj__icontains=cnpj,
                                      cliCpf__icontains=cpf)
     else:
-        lista = tb_os.objects.all()
+        lista = tb_os.objects.all().order_by('-cod')
 
     return render(request, 'cad_ordemServ_app/listaOs.html', {'lista': lista})
 

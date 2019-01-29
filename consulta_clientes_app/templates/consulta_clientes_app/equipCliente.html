@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title%}GEMAH-MENU{% endblock %}
+
+{% block main %}
+
+<h1>EQUIPAMENTOS DO CLIENTE</h1>
+
+    <ol>
+        {% for equip in equipamentos %}
+            <li>
+                <b>COD:</b> <i>{{ equip.cod }}</i><br>
+                <b>NOME:</b> <i>{{ equip.nome }}</i><br>
+                <b>MODELO:</b> <i>{{ equip.modelo }}</i><br>
+                <b>MARCA:</b> <i>{{ equip.marca }}</i><br>
+                <b>Nº DE SÉRIE:</b> <i>{{ equip.numSerie }}</i><br>
+                <!-- {% if equip.cod == data.equipCod %}
+                    {% for data in data %}
+                        <b>Última Revisão</b><i>{{ data.dataFinalOs }}</i><br>
+                    {% endfor %}
+                {% endif %} -->
+            <b>-------------------------------------------------------------------------------------------------------------------</b>
+            </li>
+        {% endfor %}
+
+    </ol><br>
+    <a href="{% url 'lista_clientes' %}" class="btn btn-secondary" style='font-size:17px'><i class='far fa-share-square' style='font-size:24px'></i> VOLTAR</a>
+
+{% endblock %}

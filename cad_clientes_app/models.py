@@ -10,8 +10,8 @@ class tb_clientes(models.Model):  # CRIA A TABELA COM SEUS RESPECTIVOS CAMPOS
     bairro = models.CharField(max_length=50, null='True', blank='True')
     cidade = models.CharField(max_length=100, null='True', blank='True')
     uf = models.CharField(max_length=2)
-    cnpj = models.CharField(max_length=14)
-    cpf = models.CharField(max_length=12)
+    cnpj = models.CharField(max_length=14, null='True', blank='True')
+    cpf = models.CharField(max_length=12, null='True', blank='True')
     contato = models.CharField(max_length=50, null='True', blank='True')
     email = models.CharField(max_length=50, null='True', blank='True')
     tel = models.CharField(max_length=11, null='True', blank='True')
@@ -20,4 +20,4 @@ class tb_clientes(models.Model):  # CRIA A TABELA COM SEUS RESPECTIVOS CAMPOS
     dt_criacao = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.nome + self.cnpj
+        return self.nome + str(self.cnpj)

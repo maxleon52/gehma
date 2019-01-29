@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import lista_clientes, atualizaCliente, novoCliente, deleteCliente, pdf_generation_cliente
+from .views import lista_clientes, atualizaCliente, novoCliente, deleteCliente, pdf_generation_cliente, equipamentoDoCliente
 
 urlpatterns = [
     path('listaClientes/', lista_clientes, name='lista_clientes'), #caminho(APP) e função na view
@@ -7,4 +7,5 @@ urlpatterns = [
     path('atualizaClientes/<int:id>', atualizaCliente, name='atualizaCliente'), #caminho(APP) e função na view
     path('deleteClientes/<int:id>', deleteCliente, name='deleteCliente'), #caminho(APP) e função na view
     path('pdf_generation_cliente/<int:id>', pdf_generation_cliente, name='pdf_generation_cliente_urls'), #caminho(APP) e função na view
+    path('equipamentoDoCliente/<int:id>', equipamentoDoCliente, name='equipamentoDoCliente_urls'), #caminho(APP) e função na view
 ]

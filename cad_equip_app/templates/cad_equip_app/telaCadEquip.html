@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load bootstrap %}
+{% load widget_tweaks %}
 
 
 {% block title%}GEMAH{% endblock %}
@@ -12,12 +13,18 @@
         {% csrf_token %}
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 {{ form.nome|bootstrap }}
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 {{ form.modelo|bootstrap }}
             </div>
+
+            <div class="col-sm-4 form-element">
+                <label for="select-client">Selecione o Cliente</label><br>
+                    {% render_field form.cliCod class="form-control" id="select-client" %}
+            </div>
+
         </div>
         <div class="row">
             <div class="col-md-4">
@@ -49,4 +56,15 @@
 
     </form>
 
+{% endblock %}
+
+{% block custom_scripts %}
+    <script>
+            $(document).ready(function() {
+                $('#select-client').select2({
+                    width: '100%'
+                });
+            })
+
+    </script>
 {% endblock %}

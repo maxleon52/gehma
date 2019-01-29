@@ -27,6 +27,7 @@
               <th scope="col">CPF</th>
               <th scope="col">IMPRIMIR</th>
               <th scope="col">APAGAR</th>
+              <th scope="col">EQUIPAMENTOS</th>
             </tr>
       </thead>
       {% for cliente in lista %}
@@ -38,6 +39,7 @@
               <td>{{ cliente.cpf }}</td>
               <td><a href="{% url 'pdf_generation_cliente_urls' cliente.cod %}" class="print-mini"><span class="glyphicon glyphicon-print"></span></a></td>
               <td><a href="{% url 'deleteCliente' cliente.cod %}" class="trash-item-xl"><span class="glyphicon glyphicon-trash"></span></a></td>
+              <td><a href="{% url 'equipamentoDoCliente_urls' cliente.cod %}"><span class="glyphicon glyphicon-wrench"></span></a></td>
             </tr>
       </tbody>
       {% endfor %}

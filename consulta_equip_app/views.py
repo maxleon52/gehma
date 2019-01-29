@@ -21,7 +21,7 @@ def listaEquip(request):
         lista = tb_equip.objects.filter(nome__icontains=tipoNome, modelo__icontains=modelo,
                                         numSerie__icontains=numSerie)
     else:
-        lista = tb_equip.objects.all()
+        lista = tb_equip.objects.all().order_by('-cod')
     return render(request, 'consulta_equip_app/consultaEquip.html', {'lista': lista})
 
 
@@ -65,9 +65,9 @@ def enviarEmail(request, id):
     data = equip.proxManu.strftime('%d/%m/%Y')
     para = request.POST.get('para', None) #Variavel 'para' é o nome do campo no formulario
     send_mail(
-        'TESTE ENVIO EMAIL GMAIL',
-        'Olá, Bom dia! Identificamos em nosso sistema que o equipamento %s tem uma revisão agenda para o dia %s. Evite acidentes ou falhas no equipamento, faça a manutenção periodicamente.' % (nome, data),
-        'maxleon522@gmail.com',
+        'GEMAH - AVISA!',
+        'Olá, Bom dia! Identificamos em nosso sistema que o equipamento %s tem uma revisão agenda para o dia %s. Evite falhas no equipamento, seja pontual na manutenção preventiva. Agende seu atendimento através dos canais de comunicação: telefone 88-99853.2515 ou por  e-mail: contatogemah@gmail.com' % (nome, data),
+        'contatogemah@gmail.com',
         [para],
         fail_silently=False,
     )

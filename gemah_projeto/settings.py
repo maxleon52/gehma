@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrapform',
+    'bootstrap_datepicker_plus',
     'cad_clientes_app',
     'cad_equip_app',
     'consulta_clientes_app',
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
     'cad_ordemServ_app',
     'menu_principal',
     'widget_tweaks',
+
 ]
 
 MIDDLEWARE = [
@@ -138,6 +140,11 @@ LOGIN_REDIRECT_URL = 'menuPrincipal_urls'  # DEVER SER O MENU PRINCIPAL
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'maxleon522@gmail.com'
-EMAIL_HOST_PASSWORD = 'max837452'
+EMAIL_HOST_USER = 'contatogemah@gmail.com'
+EMAIL_HOST_PASSWORD = 'gemah2018'
 EMAIL_USE_TLS = True
+
+
+BOOTSTRAP4 = {
+    'include_jquery': True,
+}

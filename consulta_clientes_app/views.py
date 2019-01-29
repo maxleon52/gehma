@@ -1,5 +1,7 @@
 from cad_clientes_app.forms import clienteForm
 from cad_clientes_app.models import tb_clientes
+from cad_equip_app.models import tb_equip
+from cad_ordemServ_app.models import tb_os
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 
@@ -15,7 +17,7 @@ def lista_clientes(request):
     if razNome or cnpj or cpf:
         lista = tb_clientes.objects.filter(nome__icontains=razNome, cnpj__icontains=cnpj, cpf__icontains=cpf)  # CONSULTA NO MODEL (BD) E ARMAZENA NA VARIAVEL
     else:
-        lista = tb_clientes.objects.all()  # CONSULTA NO MODEL (BD) E ARMAZENA NA VARIAVEL
+        lista = tb_clientes.objects.all().order_by('-cod')  # CONSULTA NO MODEL (BD) E ARMAZENA NA VARIAVEL
 
     return render(request, 'consulta_clientes_app/consultaClientes.html',{'lista': lista})  # MOSTRANDO O TEMPLATE E A CONSULTA NO BANCO
 
@@ -72,3 +74,9 @@ def pdf_generation_cliente(request, id):
     #form = clienteForm(request.POST or None, request.FILES or None, instance=cliente)
 
     return render(request, 'cad_clientes_app/teste.html', {'form':cliente})
+
+
+def equipamentoDoCliente(request, id):
+    equipamentos = tb_equip.objects.filter(cliCod=id)
+    #data = tb_os.objects.all()
+    return render(request, 'consulta_clientes_app/equipCliente.html', {'equipamentos': equipamentos})#, 'data':data})
